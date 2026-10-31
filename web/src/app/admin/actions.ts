@@ -34,6 +34,55 @@ const depositSchema = z.object({
   paymentReference: z.string().trim().max(100),
 });
 
+const venueAvailabilitySchema = z.object({
+  venueId: z.coerce.number().int().positive(),
+  isAvailable: z.enum(["true", "false"]).transform((value) => value === "true"),
+});
+
+const packageAvailabilitySchema = z.object({
+  packageId: z.coerce.number().int().positive(),
+  isAvailable: z.enum(["true", "false"]).transform((value) => value === "true"),
+});
+
+const serviceProviderStatusSchema = z.object({
+  providerId: z.coerce.number().int().positive(),
+  isActive: z.enum(["true", "false"]).transform((value) => value === "true"),
+});
+
+const reservationEditSchema = z.object({
+  reservationId: z.coerce.number().int().positive(),
+  eventType: z.string().trim().min(1).max(100),
+  startAt: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/),
+  endAt: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/),
+  guestCount: z.coerce.number().int().min(1).max(1000),
+  specialRequest: z.string().trim().max(2000),
+});
+
+function isValidManilaDateTime(value: string) {
+  const [date, time] = value.split("T");
+  const [year, month, day] = date.split("-").map(Number);
+  const [hour, minute] = time.split(":").map(Number);
+  const parsedDate = new Date(Date.UTC(year, month - 1, day));
+
+  return (
+    parsedDate.getUTCFullYear() === year &&
+    parsedDate.getUTCMonth() === month - 1 &&
+    parsedDate.getUTCDate() === day &&
+    month >= 1 &&
+    month <= 12 &&
+    day >= 1 &&
+    day <= new Date(Date.UTC(year, month, 0)).getUTCDate() &&
+    hour >= 0 &&
+    hour <= 23 &&
+    minute >= 0 &&
+    minute <= 59
+  );
+}
+
+function reservationEditPath(reservationId: number) {
+  return `/admin/reservations/${reservationId}/edit`;
+}
+
 export type LoginFormState = {
   error?: string;
 };
@@ -119,6 +168,35 @@ export async function updateInquiryStatus(formData: FormData) {
 
   revalidatePath("/admin");
   redirect("/admin?updated=1");
+}
+
+export async function deleteDeclinedInquiry(formData: FormData) {
+  const inquiryId = z.coerce.number().int().positive().safeParse(formData.get("inquiryId"));
+
+  if (!inquiryId.success) {
+    redirect("/admin?delete=failed");
+  }
+
+  const { supabase } = await requireAdmin();
+  const { data, error } = await supabase
+    .from("reservation_inquiries")
+    .delete()
+    .eq("inquiry_id", inquiryId.data)
+    .eq("inquiry_status", "declined")
+    .select("inquiry_id")
+    .maybeSingle();
+
+  if (error) {
+    console.error("Could not delete declined inquiry:", error.message);
+    redirect("/admin?delete=failed");
+  }
+
+  if (!data) {
+    redirect("/admin?delete=failed");
+  }
+
+  revalidatePath("/admin");
+  redirect("/admin?delete=success");
 }
 
 export async function saveInquiryQuotation(formData: FormData) {
@@ -221,4 +299,144 @@ export async function confirmInquiryReservation(formData: FormData) {
   redirect(
     `/admin?confirm=success&reference=${encodeURIComponent(result.data.reference_code)}`,
   );
+}
+
+export async function updateReservation(formData: FormData) {
+  const parsed = reservationEditSchema.safeParse({
+    reservationId: formData.get("reservationId"),
+    eventType: formData.get("eventType"),
+    startAt: formData.get("startAt"),
+    endAt: formData.get("endAt"),
+    guestCount: formData.get("guestCount"),
+    specialRequest: formData.get("specialRequest") ?? "",
+  });
+
+  if (
+    !parsed.success ||
+    !isValidManilaDateTime(parsed.data.startAt) ||
+    !isValidManilaDateTime(parsed.data.endAt) ||
+    parsed.data.startAt >= parsed.data.endAt ||
+    (parsed.success &&
+      isValidManilaDateTime(parsed.data.startAt) &&
+      new Date(`${parsed.data.startAt}:00+08:00`).getTime() <= Date.now())
+  ) {
+    const reservationId = z.coerce.number().int().positive().safeParse(formData.get("reservationId"));
+    if (reservationId.success) {
+      redirect(`${reservationEditPath(reservationId.data)}?error=invalid`);
+    }
+    redirect("/admin/reservations");
+  }
+
+  const { supabase } = await requireAdmin();
+  const startAt = new Date(`${parsed.data.startAt}:00+08:00`).toISOString();
+  const endAt = new Date(`${parsed.data.endAt}:00+08:00`).toISOString();
+  const { data, error } = await supabase
+    .from("reservations")
+    .update({
+      event_type: parsed.data.eventType,
+      start_at: startAt,
+      end_at: endAt,
+      guest_count: parsed.data.guestCount,
+      special_request: parsed.data.specialRequest || null,
+    })
+    .eq("reservation_id", parsed.data.reservationId)
+    .in("reservation_status", ["pending", "confirmed"])
+    .select("reservation_id")
+    .maybeSingle();
+
+  if (error) {
+    if (error.code === "23P01") {
+      redirect(`${reservationEditPath(parsed.data.reservationId)}?error=conflict`);
+    }
+
+    console.error("Could not update reservation:", error.message);
+    redirect(`${reservationEditPath(parsed.data.reservationId)}?error=failed`);
+  }
+
+  if (!data) {
+    redirect(`${reservationEditPath(parsed.data.reservationId)}?error=unavailable`);
+  }
+
+  revalidatePath("/admin");
+  revalidatePath("/admin/reservations");
+  revalidatePath("/admin/calendar");
+  revalidatePath(`/admin/reservations/${parsed.data.reservationId}/invoice`);
+  redirect("/admin/reservations?updated=1");
+}
+
+export async function updateVenueAvailability(formData: FormData) {
+  const parsed = venueAvailabilitySchema.safeParse({
+    venueId: formData.get("venueId"),
+    isAvailable: formData.get("isAvailable"),
+  });
+  if (!parsed.success) redirect("/admin/venues?update=failed");
+
+  const { supabase } = await requireAdmin();
+  const { data, error } = await supabase
+    .from("venues")
+    .update({ is_available: parsed.data.isAvailable })
+    .eq("venue_id", parsed.data.venueId)
+    .select("venue_id")
+    .maybeSingle();
+
+  if (error) {
+    console.error("Could not update venue availability:", error.message);
+    redirect("/admin/venues?update=failed");
+  }
+  if (!data) redirect("/admin/venues?update=failed");
+
+  revalidatePath("/admin/venues");
+  revalidatePath("/reserve");
+  redirect("/admin/venues?updated=1");
+}
+
+export async function updatePackageAvailability(formData: FormData) {
+  const parsed = packageAvailabilitySchema.safeParse({
+    packageId: formData.get("packageId"),
+    isAvailable: formData.get("isAvailable"),
+  });
+  if (!parsed.success) redirect("/admin/packages?update=failed");
+
+  const { supabase } = await requireAdmin();
+  const { data, error } = await supabase
+    .from("packages")
+    .update({ is_available: parsed.data.isAvailable })
+    .eq("package_id", parsed.data.packageId)
+    .select("package_id")
+    .maybeSingle();
+
+  if (error) {
+    console.error("Could not update package availability:", error.message);
+    redirect("/admin/packages?update=failed");
+  }
+  if (!data) redirect("/admin/packages?update=failed");
+
+  revalidatePath("/admin/packages");
+  revalidatePath("/reserve");
+  redirect("/admin/packages?updated=1");
+}
+
+export async function updateServiceProviderStatus(formData: FormData) {
+  const parsed = serviceProviderStatusSchema.safeParse({
+    providerId: formData.get("providerId"),
+    isActive: formData.get("isActive"),
+  });
+  if (!parsed.success) redirect("/admin/packages?update=failed");
+
+  const { supabase } = await requireAdmin();
+  const { data, error } = await supabase
+    .from("service_providers")
+    .update({ is_active: parsed.data.isActive })
+    .eq("provider_id", parsed.data.providerId)
+    .select("provider_id")
+    .maybeSingle();
+
+  if (error) {
+    console.error("Could not update service-provider status:", error.message);
+    redirect("/admin/packages?update=failed");
+  }
+  if (!data) redirect("/admin/packages?update=failed");
+
+  revalidatePath("/admin/packages");
+  redirect("/admin/packages?updated=1");
 }

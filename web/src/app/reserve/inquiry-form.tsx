@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { z } from "zod";
+import RequestTracker from "./request-tracker";
 
 const optionsSchema = z.object({
   venues: z.array(
@@ -35,13 +36,33 @@ function formatTime(value: string | null) {
   return `${hour}:${String(minutes).padStart(2, "0")} ${suffix}`;
 }
 
-export default function InquiryForm({ minDate }: { minDate: string }) {
+export default function InquiryForm({
+  minDate,
+  selectedDate,
+  setSelectedDate,
+  venueId,
+  setVenueId,
+  packageId,
+  setPackageId,
+}: {
+  minDate: string;
+  selectedDate: string;
+  setSelectedDate: (date: string) => void;
+  venueId: string;
+  setVenueId: (venueId: string) => void;
+  packageId: string;
+  setPackageId: (packageId: string) => void;
+}) {
   const [options, setOptions] = useState<Options | null>(null);
   const [loadError, setLoadError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{ kind: "success" | "error"; message: string } | null>(
     null,
   );
+  const [submittedRequest, setSubmittedRequest] = useState<{
+    referenceCode: string;
+    contact: string;
+  } | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -112,7 +133,23 @@ export default function InquiryForm({ minDate }: { minDate: string }) {
         return;
       }
 
+      const referenceCode =
+        typeof result === "object" &&
+        result !== null &&
+        "referenceCode" in result &&
+        typeof result.referenceCode === "string" &&
+        /^VCI-[A-F0-9]{12}$/.test(result.referenceCode)
+          ? result.referenceCode
+          : null;
+      const contact =
+        String(formData.get("email") ?? "").trim() ||
+        String(formData.get("contactNumber") ?? "").trim();
+
       form.reset();
+      setSelectedDate("");
+      setVenueId("");
+      setPackageId("");
+      setSubmittedRequest(referenceCode ? { referenceCode, contact } : null);
       setFeedback({ kind: "success", message });
     } catch {
       setFeedback({
@@ -125,7 +162,8 @@ export default function InquiryForm({ minDate }: { minDate: string }) {
   }
 
   return (
-    <form className="inquiry-form" onSubmit={handleSubmit}>
+    <div className="inquiry-customer-flow">
+      <form className="inquiry-form" onSubmit={handleSubmit}>
       <div className="form-section-heading">
         <span>01</span>
         <div>
@@ -151,12 +189,25 @@ export default function InquiryForm({ minDate }: { minDate: string }) {
 
         <label className="form-field">
           <span>Preferred date <b>*</b></span>
-          <input name="preferredDate" type="date" min={minDate || undefined} required />
+          <input
+            name="preferredDate"
+            type="date"
+            min={minDate || undefined}
+            onChange={(event) => setSelectedDate(event.target.value)}
+            required
+            value={selectedDate}
+          />
         </label>
 
         <label className="form-field">
           <span>Preferred space <b>*</b></span>
-          <select name="venueId" required defaultValue="" disabled={!options}>
+          <select
+            name="venueId"
+            onChange={(event) => setVenueId(event.target.value)}
+            required
+            value={venueId}
+            disabled={!options}
+          >
             <option value="" disabled>
               {options ? "Choose a space" : "Loading spaces..."}
             </option>
@@ -170,7 +221,13 @@ export default function InquiryForm({ minDate }: { minDate: string }) {
 
         <label className="form-field">
           <span>Rental package <b>*</b></span>
-          <select name="packageId" required defaultValue="" disabled={!options}>
+          <select
+            name="packageId"
+            onChange={(event) => setPackageId(event.target.value)}
+            required
+            value={packageId}
+            disabled={!options}
+          >
             <option value="" disabled>
               {options ? "Choose a package" : "Loading packages..."}
             </option>
@@ -272,6 +329,13 @@ export default function InquiryForm({ minDate }: { minDate: string }) {
           {feedback.message}
         </p>
       ) : null}
+      {submittedRequest ? (
+        <div className="request-reference-notice" role="status">
+          <span>Your request reference</span>
+          <strong>{submittedRequest.referenceCode}</strong>
+          <small>Save this code to check your request status below.</small>
+        </div>
+      ) : null}
 
       <div className="form-submit-row">
         <p>Fields marked <b>*</b> are required.</p>
@@ -284,6 +348,12 @@ export default function InquiryForm({ minDate }: { minDate: string }) {
           <span aria-hidden="true">→</span>
         </button>
       </div>
-    </form>
+      </form>
+      <RequestTracker
+        key={submittedRequest?.referenceCode ?? "request-tracker"}
+        initialContact={submittedRequest?.contact}
+        initialReference={submittedRequest?.referenceCode}
+      />
+    </div>
   );
 }

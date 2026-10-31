@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { randomBytes } from "node:crypto";
 import { z } from "zod";
 import {
   createSupabasePublicClient,
@@ -104,6 +105,7 @@ export async function POST(request: Request) {
 
   try {
     const supabase = createSupabasePublicClient();
+    const referenceCode = `VCI-${randomBytes(6).toString("hex").toUpperCase()}`;
     const [venueResult, packageResult] = await Promise.all([
       supabase
         .from("venues")
@@ -138,6 +140,7 @@ export async function POST(request: Request) {
     }
 
     const { error } = await supabase.from("reservation_inquiries").insert({
+      inquiry_reference_code: referenceCode,
       customer_name: inquiry.customerName,
       contact_number: inquiry.contactNumber,
       email: inquiry.email || null,
@@ -150,11 +153,11 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      if (error.code === "PGRST205") {
+      if (error.code === "PGRST205" || error.code === "PGRST204") {
         return NextResponse.json(
           {
             message:
-              "The reservation inquiry table is missing. Apply the reservation inquiry migration in Supabase.",
+              "Request tracking is not configured. Apply the inquiry tracking migration in Supabase.",
           },
           { status: 503 },
         );
@@ -171,6 +174,7 @@ export async function POST(request: Request) {
       {
         message:
           "Your inquiry was received. It does not reserve the date; staff will contact you with availability and a quotation.",
+        referenceCode,
       },
       { status: 201 },
     );

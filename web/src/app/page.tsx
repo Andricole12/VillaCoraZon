@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ScrollReveal from "./scroll-reveal";
 
 const spaces = [
   {
@@ -31,14 +32,26 @@ const spaces = [
 ];
 
 const packages = [
-  { name: "Day", time: "A bright beginning to your celebration" },
-  { name: "Night", time: "An evening made for gathering" },
-  { name: "Whole day", time: "More time to make it your own" },
+  {
+    name: "Day",
+    time: "A bright beginning to your celebration, with a relaxed daytime feel.",
+    label: "DAY CELEBRATION",
+  },
+  {
+    name: "Night",
+    time: "An evening made for gathering, sharing a meal, and making memories.",
+    label: "EVENING CELEBRATION",
+  },
+  {
+    name: "Whole day",
+    time: "More time to settle in, celebrate, and make the day your own.",
+    label: "FULL-DAY CELEBRATION",
+  },
 ];
 
 export default function Home() {
   return (
-    <>
+    <ScrollReveal>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Villa Corazon home">
           <span className="brand-mark" aria-hidden="true">
@@ -50,92 +63,108 @@ export default function Home() {
           </span>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
+          <a href="#story">Our story</a>
           <a href="#spaces">The spaces</a>
           <a href="#packages">Packages</a>
-          <a href="#process">How it works</a>
+          <Link href="/track">Track reservation</Link>
         </nav>
+        <details className="mobile-menu">
+          <summary>
+            Explore <span aria-hidden="true">⌄</span>
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#story">Our story</a>
+            <a href="#spaces">The spaces</a>
+            <a href="#packages">Packages</a>
+            <Link href="/track">Track reservation</Link>
+          </nav>
+        </details>
         <Link className="button button-outline header-cta" href="/reserve">
-          Request a quote <span aria-hidden="true">↗</span>
+          Reserve a date <span aria-hidden="true">↗</span>
         </Link>
       </header>
 
       <main>
         <section className="hero" id="home">
           <div className="hero-image" aria-hidden="true" />
-          <div className="hero-content">
+          <div className="hero-content" data-reveal>
             <p className="eyebrow eyebrow-light">
-              A PLACE FOR YOUR MOST MEANINGFUL DAYS
+              YOUR CELEBRATION, BEAUTIFULLY HELD
             </p>
             <h1>
-              Gather close.
+              Where your story
               <br />
-              Celebrate <em>beautifully.</em>
+              comes to <em>life.</em>
             </h1>
             <p className="hero-copy">
-              A warm and welcoming place for the moments that bring everyone
-              together. Find a space that feels like yours at Villa Corazon.
+              An intimate garden and events place thoughtfully designed for
+              weddings, milestones, and meaningful days together.
             </p>
             <div className="hero-actions">
               <a className="button button-light" href="#spaces">
-                Explore our spaces <span aria-hidden="true">↓</span>
+                Explore spaces &amp; dates <span aria-hidden="true">→</span>
               </a>
               <Link className="text-link text-link-light" href="/reserve">
-                Request a quotation <span aria-hidden="true">→</span>
+                <span className="hero-play" aria-hidden="true">▶</span>
+                Start planning
               </Link>
             </div>
           </div>
-          <div className="hero-note">
-            <span className="hero-note-icon" aria-hidden="true">
-              V
-            </span>
-            <span>
-              <strong>Made for gathering</strong>
-              <small>Spaces for intimate moments and grand celebrations</small>
-            </span>
-          </div>
           <div className="hero-index" aria-hidden="true">
-            01 <span /> 03
+            VILLA CORAZON <span /> PHILIPPINES
           </div>
         </section>
 
-        <section className="intro-section section-wrap">
-          <p className="eyebrow">WELCOME TO VILLA CORAZON</p>
-          <div className="intro-grid">
-            <h2>
-              The best days are
-              <br />
-              the ones we <em>share.</em>
-            </h2>
-            <p>
-              From heartfelt family gatherings to once-in-a-lifetime
-              celebrations, Villa Corazon offers a place to bring your people
-              together. Explore our spaces, then talk with our team about the
-              date and details you have in mind.
-            </p>
+        <section className="intro-section section-wrap" id="story">
+          <div className="intro-collage" data-reveal>
+            <div
+              className="intro-image intro-image-garden"
+              role="img"
+              aria-label="Garden event setting"
+            />
+            <div
+              className="intro-image intro-image-venue"
+              role="img"
+              aria-label="Villa Corazon event venue"
+            />
+            <span className="intro-image-seal">MADE FOR<br />MEANINGFUL<br />MOMENTS</span>
           </div>
-          <div className="intro-rule">
-            <span>THOUGHTFULLY HOSTED</span>
-            <span>ROOM TO CELEBRATE</span>
-            <span>MADE WITH CORAZON</span>
+          <div className="intro-story" data-reveal>
+            <p className="eyebrow">A HOME FOR YOUR MOST IMPORTANT DAYS</p>
+            <h2>
+              A little sanctuary,
+              <br />
+              <em>made for gathering.</em>
+            </h2>
+            <p className="intro-story-copy">
+              At Villa Corazon, the setting is part of the celebration. Bring
+              your favorite people together in a welcoming space, surrounded by
+              thoughtful details and room to make the day your own.
+            </p>
+            <div className="intro-stats">
+              <div><strong>150</strong><span>Approx. Grand Hall capacity</span></div>
+              <div><strong>3</strong><span>Featured event spaces</span></div>
+              <div><strong>VC</strong><span>Gather with corazon</span></div>
+            </div>
           </div>
         </section>
 
         <section className="spaces-section" id="spaces">
           <div className="section-wrap">
-            <div className="section-heading">
+            <div className="section-heading" data-reveal>
               <div>
                 <p className="eyebrow">FIND YOUR SETTING</p>
-                <h2>Spaces for every <em>kind of together.</em></h2>
+                <h2>Spaces with <em>a sense of place.</em></h2>
               </div>
               <p className="section-heading-copy">
-                Choose a setting that fits your gathering. Our team can help
-                you explore arrangements and availability.
+                From garden gatherings to grand celebrations, find a setting
+                that feels right for your day.
               </p>
             </div>
 
             <div className="spaces-grid">
               {spaces.map((space) => (
-                <article className={space.className} key={space.name}>
+                <article className={space.className} data-reveal key={space.name}>
                   <div
                     className="space-image"
                     role="img"
@@ -143,116 +172,78 @@ export default function Home() {
                     style={{ backgroundImage: `url("${space.image}")` }}
                   >
                     <span className="space-number">{space.number}</span>
-                    <span className="space-capacity">{space.capacity}</span>
+                    <span className="space-image-copy">
+                      <small>{space.capacity}</small>
+                      <strong>{space.name}</strong>
+                      <span>EXPLORE THIS SPACE <b aria-hidden="true">↗</b></span>
+                    </span>
                   </div>
                   <div className="space-info">
-                    <div>
-                      <h3>{space.name}</h3>
-                      <p>{space.description}</p>
-                    </div>
-                    <span className="space-arrow" aria-hidden="true">
-                      ↗
-                    </span>
+                    <p>{space.description}</p>
                   </div>
                 </article>
               ))}
             </div>
             <p className="fine-print">
-              Guest Room and Guest House accommodation may also be available.
-              Capacities and facility details are approximate; please confirm
-              current arrangements with the venue.
+              Capacities are approximate. Please ask our team to confirm
+              current venue details and arrangements.
             </p>
           </div>
         </section>
 
         <section className="packages-section" id="packages">
-          <div className="section-wrap packages-grid">
-            <div className="packages-intro">
-              <p className="eyebrow eyebrow-light">YOUR DAY, YOUR WAY</p>
-              <h2>
-                Make room for
-                <br />
-                <em>the good stuff.</em>
-              </h2>
+          <div className="section-wrap">
+            <div className="packages-intro" data-reveal>
+              <p className="eyebrow">CELEBRATIONS, CONSIDERED</p>
+              <h2>Choose your <em>experience.</em></h2>
               <p>
-                Choose a day, night, or whole-day rental. Tell us what you are
-                planning and we will prepare a quotation for your event.
+                Tell us what you are planning. We will help shape the details
+                and prepare a quotation for your event.
               </p>
-              <Link className="text-link text-link-light" href="/reserve">
-                Ask us for a quotation{" "}
-                <span aria-hidden="true">→</span>
-              </Link>
             </div>
             <div className="package-list">
               {packages.map((item, index) => (
-                <article className="package-item" key={item.name}>
+                <article
+                  className={`package-item${index === 1 ? " package-item-featured" : ""}`}
+                  data-reveal
+                  key={item.name}
+                >
+                  {index === 1 ? <span className="package-featured-label">A TIME TO CELEBRATE</span> : null}
                   <span className="package-index">0{index + 1}</span>
                   <div>
+                    <span className="package-label">{item.label}</span>
                     <h3>{item.name}</h3>
                     <p>{item.time}</p>
+                    <strong className="package-price">Quotation on request</strong>
+                    <span className="package-detail">Details tailored to your event</span>
                   </div>
-                  <span className="package-arrow" aria-hidden="true">
-                    ↗
-                  </span>
+                  <Link className="package-cta" href="/reserve">
+                    Check availability <span aria-hidden="true">→</span>
+                  </Link>
                 </article>
               ))}
-              <p className="package-note">
-                Rates and included services are confirmed with your quotation.
-              </p>
             </div>
+            <p className="package-note" data-reveal>
+              Rates and included services are confirmed with your quotation.
+            </p>
           </div>
         </section>
 
-        <section className="process-section section-wrap" id="process">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">A PERSONAL TOUCH, AT EVERY STEP</p>
-              <h2>From first hello to <em>“I do.”</em></h2>
-            </div>
-            <p className="section-heading-copy">
-              For now, our team helps you personally with your inquiry,
-              quotation, and reservation confirmation.
-            </p>
-          </div>
-          <div className="process-grid">
-            <article>
-              <span>01</span>
-              <h3>Share your plans</h3>
-              <p>
-                Tell our team your event type, preferred date and time, guest
-                count, and the space you have in mind.
-              </p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Receive a quotation</h3>
-              <p>
-                The team checks the schedule and prepares a quotation based on
-                your event details.
-              </p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Confirm your date</h3>
-              <p>
-                After you accept the quote and the team verifies your deposit,
-                they confirm your reservation.
-              </p>
-            </article>
-          </div>
-          <div className="process-callout">
-            <div>
-              <p className="eyebrow eyebrow-light">LET&apos;S MAKE IT A DAY TO REMEMBER</p>
-              <h2>Your celebration starts with a conversation.</h2>
-            </div>
-            <Link className="button button-light" href="/reserve">
-              Tell us about your event <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+        <section className="process-callout" id="process" data-reveal>
+          <span className="callout-star" aria-hidden="true">✦</span>
+          <p className="eyebrow eyebrow-light">LET&apos;S MAKE IT A DAY TO REMEMBER</p>
+          <h2>Your date may still be waiting.</h2>
+          <p>
+            Tell us what you are dreaming of. We&apos;ll be in touch with the
+            details to help make it real.
+          </p>
+          <Link className="button button-light" href="/reserve">
+            Start your reservation <span aria-hidden="true">→</span>
+          </Link>
         </section>
       </main>
 
-      <footer className="site-footer">
+      <footer className="site-footer" data-reveal>
         <a className="brand brand-footer" href="#home" aria-label="Villa Corazon home">
           <span className="brand-mark" aria-hidden="true">
             VC
@@ -263,11 +254,17 @@ export default function Home() {
           </span>
         </a>
         <p>A welcoming place to gather, celebrate, and make memories.</p>
+        <nav className="footer-nav" aria-label="Footer navigation">
+          <a href="#story">Our story</a>
+          <a href="#spaces">The spaces</a>
+          <a href="#packages">Packages</a>
+          <Link href="/track">Track</Link>
+        </nav>
         <a className="footer-top" href="#home">
           Back to top <span aria-hidden="true">↑</span>
         </a>
         <small>Venue details and pricing are subject to confirmation.</small>
       </footer>
-    </>
+    </ScrollReveal>
   );
 }
