@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { connection, NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/supabase/admin";
 import {
   getGmailOAuthConfig,
@@ -14,6 +14,7 @@ function redirectToAdmin(request: NextRequest, result: string) {
 }
 
 export async function GET(request: NextRequest) {
+  await connection();
   const { admin } = await requireAdmin();
   const params = request.nextUrl.searchParams;
   if (params.get("error")) return redirectToAdmin(request, "denied");

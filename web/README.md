@@ -1,7 +1,7 @@
 # Villa Corazon website
 
 The website is a Next.js App Router project using TypeScript and Tailwind CSS.
-Supabase is the planned PostgreSQL backend, and Vercel is the planned host.
+Supabase provides the PostgreSQL backend, and Vercel is the recommended host.
 
 ## Run locally
 
@@ -16,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Supabase setup
 
 1. Create a Supabase project and save its database password somewhere secure.
-2. In the Supabase SQL Editor, review the root `schema.sql` and run it once
+2. In the Supabase SQL Editor, review `supabase/schema.sql` and run it once
    against the new, empty project. Do not run it repeatedly: the script creates
    enum types and triggers that are not designed to be reapplied.
 3. Before using real customer data, review the SQL policies and the public
@@ -64,7 +64,7 @@ Open [http://localhost:3000](http://localhost:3000).
    browser-facing applications; database access must still be protected by
    correct Row Level Security policies. Never put the `service_role` or secret
    key in a `NEXT_PUBLIC_` variable or browser code.
-12. Restart the dev server and open
+14. Restart the dev server and open
    [http://localhost:3000/api/health/supabase](http://localhost:3000/api/health/supabase).
    `{"status":"ok"}` means the app can query the `venues` table. A
    `not_configured` response means the environment variables are missing; a
@@ -149,17 +149,63 @@ Google verification requirements before relying on this for production.
 
 ## Vercel deployment
 
-1. Push the repository to your GitHub account and import it into Vercel.
-2. Set the Vercel project **Root Directory** to `web` and use the detected
-   Next.js framework settings.
-3. Add `NEXT_PUBLIC_SUPABASE_URL` and
-   `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in Vercel's project environment
-   variables for Preview and Production. For Gmail drafts, also add the OAuth
-   client ID, secret, production callback URI, and a production encryption key.
-4. Deploy, then test the live `/api/health/supabase` endpoint.
+The production build and lint checks are `npm run build` and `npm run lint`
+from the `web` directory. The app uses the standard Next.js build and does not
+need a custom Vercel build command, output directory, or `vercel.json`.
 
-Keep `web/.env.local` on your computer only. It is ignored by Git. Vercel
-environment variables are configured in the Vercel project settings, not
+1. Push this repository to GitHub, sign in at [Vercel](https://vercel.com/),
+   choose **Add New → Project**, and import the repository.
+2. Set **Root Directory** to `web` and leave **Framework Preset** set to
+   **Next.js**. Leave the install command, build command, and output directory
+   at their detected defaults.
+3. Under **Environment Variables**, add these required variables:
+
+   | Name | Value |
+   | --- | --- |
+   | `NEXT_PUBLIC_SUPABASE_URL` | The Supabase project URL from **Project Settings → API** |
+   | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | The project's publishable API key |
+
+   Add them to **Production** and **Preview** if both environments should
+   connect to Supabase. Prefer a separate Supabase project for Preview so test
+   deployments cannot modify production data. The publishable key is intended
+   for browser apps; never add a Supabase `service_role` or secret key to the
+   website or a `NEXT_PUBLIC_` variable.
+4. Select **Deploy**. Vercel installs dependencies and runs the Next.js
+   production build. Later pushes to the connected Git branch trigger new
+   deployments.
+5. After deployment, open
+   `https://<your-deployment-domain>/api/health/supabase`. A response of
+   `{"status":"ok"}` confirms the deployed app can query Supabase. A
+   `not_configured` response means the required Vercel variables are missing
+   from that deployment environment; add them and redeploy. A
+   `schema_not_applied` response means the database schema is missing. A query
+   error means the database schema or permissions need attention.
+6. (Recommended) Add your custom domain in **Project → Settings → Domains**.
+   Configure the DNS records Vercel provides, then wait for the domain to
+   become valid before using it as the public site URL.
+
+Gmail quotation drafts are optional; the site can deploy and run without Gmail
+credentials. To enable them in Production, add `GMAIL_CLIENT_ID`,
+`GMAIL_CLIENT_SECRET`, `GMAIL_REDIRECT_URI`, and
+`GMAIL_TOKEN_ENCRYPTION_KEY` as Production environment variables. Set the
+redirect URI to the exact HTTPS URL for the deployed domain, for example:
+
+```text
+https://your-domain.example/api/admin/gmail/callback
+```
+
+Add that exact URL to the Google OAuth client's **Authorized redirect URIs**.
+Generate a unique 32-byte encryption key locally with
+`node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"`
+and use its 64-character hexadecimal output for
+`GMAIL_TOKEN_ENCRYPTION_KEY`. Do not reuse the development key or commit any of
+these values. If Gmail is enabled for Preview, give Preview its own callback
+URL and authorize that exact URL with Google as well. Google OAuth apps left in
+Testing mode can issue refresh tokens that expire after seven days.
+
+After changing environment variables in Vercel, redeploy so the new deployment
+receives them. Keep `web/.env.local` on your computer only; it is ignored by
+Git. Vercel environment variables are configured in the project settings, not
 committed to the repository.
 
 ## Staff dashboard setup

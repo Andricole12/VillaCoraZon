@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { NextRequest, NextResponse } from "next/server";
+import { connection, NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/supabase/admin";
 import {
   getGmailOAuthConfig,
@@ -9,6 +9,7 @@ import {
 } from "@/lib/gmail";
 
 export async function GET(request: NextRequest) {
+  await connection();
   const { admin } = await requireAdmin();
   if (!isGmailOAuthConfigured()) {
     return NextResponse.redirect(new URL("/admin?gmail=setup_required", request.url));
