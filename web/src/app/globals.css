@@ -6916,10 +6916,11 @@ a {
 }
 
 .villa-home__venue-tab {
+  letter-spacing: 2px;
   min-height: 44px;
   padding: 8px 10px;
   border: 0;
-  background: #172e4d;
+  border: var(--villa-accent) 1px solid;
   color: var(--villa-paper);
   cursor: pointer;
   font: inherit;
@@ -6931,6 +6932,7 @@ a {
 .villa-home__venue-tab[aria-selected="true"] {
   background: var(--villa-accent);
   color: var(--villa-pine);
+  letter-spacing: 2px;
 }
 
 .villa-home__venue-panel h3,
@@ -7071,6 +7073,10 @@ a {
   display: none;
 }
 
+.villa-home__gallery-track.is-looping {
+  scroll-snap-type: none;
+}
+
 .villa-home__gallery-track.is-dragging {
   cursor: grabbing;
   scroll-snap-type: none;
@@ -7170,6 +7176,7 @@ a {
 }
 
 .villa-home__faq-item summary {
+  border-bottom: 1px solid var(--villa-pine);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7319,6 +7326,17 @@ a {
   pointer-events: none;
 }
 
+.villa-home__hero-feature-window::after {
+  background-image:
+    radial-gradient(circle at 50% 22%, rgba(255, 244, 214, 0.45), rgba(255, 244, 214, 0) 40%),
+    linear-gradient(
+      170deg,
+      rgba(227, 201, 143, 0.35) 0%,
+      rgba(199, 154, 75, 0.35) 28%,
+      rgba(122, 90, 42, 0.55) 55%,
+      rgba(11, 23, 54, 0.85) 100%
+    );
+}
 .villa-home__footer {
   padding: 34px var(--villa-gutter) 24px;
 }

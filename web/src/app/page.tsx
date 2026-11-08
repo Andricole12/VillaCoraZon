@@ -60,21 +60,21 @@ const reasons = [
 const venueSpaces = [
   {
     id: "grand-hall",
-    name: "Grand Hall",
+    name: "GRAND HALL",
     description: "The Grand Hall is a spacious indoor venue designed to accommodate large gatherings and memorable celebrations. With a capacity of approximately 100–150 guests, it is ideal for weddings, debut celebrations, birthday parties, corporate events, anniversaries, and other grand occasions. Its indoor setting provides a comfortable and elegant atmosphere for formal gatherings and special celebrations. Venue arrangements and additional facilities may be coordinated with the management depending on the client's event requirements.",
     image: stockPhotos.ballroom,
     imageAlt: "Illustrative photograph of a ballroom arranged for a reception",
   },
   {
     id: "alfresco",
-    name: "Alfresco",
+    name: "ALFRESCO",
     description: "The Alfresco offers a relaxed and welcoming setting for intimate celebrations and gatherings. Accommodating up to 50 guests, it is suitable for birthday parties, family reunions, intimate weddings, bridal showers, and small corporate gatherings. Its open-air atmosphere provides guests with a refreshing environment while allowing them to enjoy a more casual and personalized celebration. It is an excellent choice for clients who prefer a laid-back venue for meaningful occasions.",
     image: stockPhotos.table,
     imageAlt: "Illustrative photograph of a reception table with floral details",
   },
   {
     id: "veranda",
-    name: "Veranda",
+    name: "VERANDA",
     description: "The Veranda is an intimate event space perfect for smaller celebrations and private gatherings. With a capacity of up to 40 guests, it is ideal for family celebrations, intimate birthday parties, small reunions, private dinners, and other exclusive occasions. Its relaxing atmosphere makes it suitable for clients who want a more personal and comfortable event experience. The venue also offers access to the swimming pool, providing guests with an additional recreational feature to enjoy during their stay.",
     image: stockPhotos.hall,
     imageAlt: "Illustrative photograph of a smaller event setting",
@@ -245,6 +245,7 @@ export default function Home() {
               Start with a setting and format. The team can confirm the details
               for your date and guest count.
             </p>
+            <hr />
           </div>
           <div className="villa-home__reasons-content">
             <ul className="villa-home__reason-list">
@@ -390,14 +391,6 @@ export default function Home() {
                   >
                     <span aria-hidden="true">→</span>
                   </button>
-                  <button
-                    aria-controls="villa-home-gallery-track"
-                    aria-label="Pause automatic gallery scrolling"
-                    aria-pressed="false"
-                    data-gallery-toggle
-                    type="button"
-                  >
-                  </button>
                 </div>
               </div>
             </div>
@@ -410,32 +403,42 @@ export default function Home() {
               id="villa-home-gallery-track"
               tabIndex={0}
             >
-              {galleryImages.map((photo, index) => (
-                <li
-                  aria-label={`${index + 1} of ${galleryImages.length}`}
-                  aria-roledescription="slide"
-                  className="villa-home__gallery-item"
-                  data-gallery-item
-                  data-home-reveal
-                  key={photo.title}
-                  role="group"
-                >
-                  <figure>
-                    <div className="villa-home__gallery-window">
-                      <Image
-                        alt={photo.imageAlt}
-                        fill
-                        sizes="(max-width: 700px) 84vw, 48vw"
-                        src={photo.image}
-                      />
-                    </div>
-                    <figcaption>
-                      <span>{photo.title}</span>
-                      <small>{photo.description}</small>
-                    </figcaption>
-                  </figure>
-                </li>
-              ))}
+              {Array.from({ length: 2 }, (_, sequence) =>
+                galleryImages.map((photo, index) => {
+                  const isClone = sequence === 1;
+
+                  return (
+                    <li
+                      aria-hidden={isClone || undefined}
+                      aria-label={
+                        isClone ? undefined : `${index + 1} of ${galleryImages.length}`
+                      }
+                      aria-roledescription={isClone ? undefined : "slide"}
+                      className="villa-home__gallery-item"
+                      data-gallery-clone={isClone || undefined}
+                      data-gallery-item
+                      data-home-reveal={isClone ? undefined : ""}
+                      key={`${sequence}-${photo.title}`}
+                      role={isClone ? undefined : "group"}
+                    >
+                      <figure>
+                        <div className="villa-home__gallery-window">
+                          <Image
+                            alt={photo.imageAlt}
+                            fill
+                            sizes="(max-width: 700px) 84vw, 48vw"
+                            src={photo.image}
+                          />
+                        </div>
+                        <figcaption>
+                          <span>{photo.title}</span>
+                          <small>{photo.description}</small>
+                        </figcaption>
+                      </figure>
+                    </li>
+                  );
+                }),
+              )}
             </ul>
             <p className="villa-home__gallery-note">
               These are illustrative images, not photographs of Villa Corazon.

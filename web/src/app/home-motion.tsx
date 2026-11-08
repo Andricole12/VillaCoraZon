@@ -37,8 +37,42 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
     let isGalleryFocused = false;
     let isGalleryVisible = false;
     let isAutoplayPaused = prefersReducedMotion;
-    let autoplayInterval: number | undefined;
+    let autoplayFrame: number | undefined;
+    let lastAutoplayTime = 0;
+    let autoplayPosition = 0;
     let interactionTimeout: number | undefined;
+    const shouldRunAutoplay = () =>
+      !isAutoplayPaused &&
+      !isPointerOverGallery &&
+      !isGalleryFocused &&
+      !isDragging &&
+      !isInteracting &&
+      isGalleryVisible &&
+      !document.hidden;
+    const tickAutoplay = (time: number) => {
+      autoplayFrame = undefined;
+      if (!galleryTrack || !shouldRunAutoplay()) {
+        updateAutoplay();
+        return;
+      }
+
+      if (lastAutoplayTime === 0) {
+        lastAutoplayTime = time;
+      }
+
+      const elapsed = Math.min(time - lastAutoplayTime, 50);
+      const loopWidth = galleryTrack.scrollWidth / 2;
+      lastAutoplayTime = time;
+      if (loopWidth > 0) {
+        autoplayPosition += elapsed * 0.018;
+        if (autoplayPosition >= loopWidth) {
+          autoplayPosition -= loopWidth;
+        }
+        galleryTrack.scrollLeft = autoplayPosition;
+      }
+
+      autoplayFrame = window.requestAnimationFrame(tickAutoplay);
+    };
     const updateAutoplay = () => {
       const shouldRun =
         !isAutoplayPaused &&
@@ -49,11 +83,18 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
         isGalleryVisible &&
         !document.hidden;
 
-      if (shouldRun && autoplayInterval === undefined) {
-        autoplayInterval = window.setInterval(() => scrollGallery(1), 5000);
-      } else if (!shouldRun && autoplayInterval !== undefined) {
-        window.clearInterval(autoplayInterval);
-        autoplayInterval = undefined;
+      if (shouldRun && autoplayFrame === undefined) {
+        lastAutoplayTime = 0;
+        autoplayPosition = galleryTrack?.scrollLeft ?? 0;
+        galleryTrack?.classList.add("is-autoplaying");
+        autoplayFrame = window.requestAnimationFrame(tickAutoplay);
+      } else if (!shouldRun) {
+        if (autoplayFrame !== undefined) {
+          window.cancelAnimationFrame(autoplayFrame);
+        }
+        autoplayFrame = undefined;
+        lastAutoplayTime = 0;
+        galleryTrack?.classList.remove("is-autoplaying");
       }
     };
     const updateGalleryToggle = () => {
@@ -102,8 +143,27 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
         left,
       });
     };
-    const onGalleryPrevious = () => scrollGallery(-1);
-    const onGalleryNext = () => scrollGallery(1);
+    const pauseForInteraction = () => {
+      isInteracting = true;
+      if (interactionTimeout !== undefined) {
+        window.clearTimeout(interactionTimeout);
+      }
+
+      interactionTimeout = window.setTimeout(() => {
+        isInteracting = false;
+        interactionTimeout = undefined;
+        updateAutoplay();
+      }, 6000);
+      updateAutoplay();
+    };
+    const onGalleryPrevious = () => {
+      pauseForInteraction();
+      scrollGallery(-1);
+    };
+    const onGalleryNext = () => {
+      pauseForInteraction();
+      scrollGallery(1);
+    };
     const selectVenue = (tab: HTMLButtonElement) => {
       const selectedId = tab.dataset.venueTab;
       if (!venueSelector || !selectedId) {
@@ -268,6 +328,10 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
         )
       : undefined;
 
+    if (!prefersReducedMotion) {
+      galleryTrack?.classList.add("is-looping");
+    }
+
     galleryObserver?.observe(gallery!);
     galleryToggle?.addEventListener("click", onGalleryToggle);
     galleryPrevious?.addEventListener("click", onGalleryPrevious);
@@ -303,9 +367,10 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
       venueSelector?.removeEventListener("click", onVenueClick);
       venueSelector?.removeEventListener("keydown", onVenueKeyDown);
       galleryTrack?.classList.remove("is-dragging");
+      galleryTrack?.classList.remove("is-autoplaying", "is-looping");
       document.removeEventListener("visibilitychange", onVisibilityChange);
-      if (autoplayInterval !== undefined) {
-        window.clearInterval(autoplayInterval);
+      if (autoplayFrame !== undefined) {
+        window.cancelAnimationFrame(autoplayFrame);
       }
       if (interactionTimeout !== undefined) {
         window.clearTimeout(interactionTimeout);
