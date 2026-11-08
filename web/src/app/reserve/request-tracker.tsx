@@ -91,24 +91,28 @@ export default function RequestTracker({
             maxLength={16}
             onChange={(event) => setReferenceCode(event.target.value.toUpperCase())}
             pattern="VCI-[A-Fa-f0-9]{12}"
-            placeholder="VCI-ABC123DEF456"
+            placeholder="VCI-ABC123DEF456…"
             required
+            spellCheck={false}
             value={referenceCode}
           />
         </label>
         <label className="form-field">
           <span>Phone number or email</span>
           <input
-            autoComplete="email"
+            autoCapitalize="none"
+            autoComplete="off"
             maxLength={254}
             onChange={(event) => setContact(event.target.value)}
-            placeholder="Contact used for your request"
+            placeholder="Phone number or email…"
             required
+            spellCheck={false}
+            type="text"
             value={contact}
           />
         </label>
         <button className="button button-navy" disabled={isLoading} type="submit">
-          {isLoading ? "Checking..." : "Track request"}
+          {isLoading ? "Checking…" : "Track request"}
         </button>
       </form>
 

@@ -164,8 +164,55 @@ export default function InquiryForm({
   return (
     <div className="inquiry-customer-flow">
       <form className="inquiry-form" onSubmit={handleSubmit}>
-      <div className="form-section-heading">
+      <div className="form-section-heading form-section-contact">
         <span>01</span>
+        <div>
+          <h2>Your contact details</h2>
+          <p>So our team can get back to you about your request.</p>
+        </div>
+      </div>
+
+      <div className="form-grid">
+        <label className="form-field form-field-wide">
+          <span>Full name <b>*</b></span>
+          <input
+            name="customerName"
+            type="text"
+            autoComplete="name"
+            minLength={2}
+            maxLength={100}
+            placeholder="Your name"
+            required
+          />
+        </label>
+
+        <label className="form-field">
+          <span>Mobile number <b>*</b></span>
+          <input
+            name="contactNumber"
+            type="tel"
+            autoComplete="tel"
+            minLength={7}
+            maxLength={20}
+            placeholder="09xx xxx xxxx"
+            required
+          />
+        </label>
+
+        <label className="form-field">
+          <span>Email address</span>
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            maxLength={254}
+            placeholder="you@example.com"
+          />
+        </label>
+      </div>
+
+      <div className="form-section-heading">
+        <span>02</span>
         <div>
           <h2>Your event</h2>
           <p>Tell us what you are celebrating.</p>
@@ -256,55 +303,7 @@ export default function InquiryForm({
             required
           />
         </label>
-      </div>
-
-      <div className="form-section-heading form-section-contact">
-        <span>02</span>
-        <div>
-          <h2>Your contact details</h2>
-          <p>So our team can get back to you about your request.</p>
-        </div>
-      </div>
-
-      <div className="form-grid">
-        <label className="form-field form-field-wide">
-          <span>Full name <b>*</b></span>
-          <input
-            name="customerName"
-            type="text"
-            autoComplete="name"
-            minLength={2}
-            maxLength={100}
-            placeholder="Your name"
-            required
-          />
-        </label>
-
-        <label className="form-field">
-          <span>Mobile number <b>*</b></span>
-          <input
-            name="contactNumber"
-            type="tel"
-            autoComplete="tel"
-            minLength={7}
-            maxLength={20}
-            placeholder="09xx xxx xxxx"
-            required
-          />
-        </label>
-
-        <label className="form-field">
-          <span>Email address</span>
-          <input
-            name="email"
-            type="email"
-            autoComplete="email"
-            maxLength={254}
-            placeholder="you@example.com"
-          />
-        </label>
-
-        <label className="form-field form-field-wide">
+                <label className="form-field form-field-wide">
           <span>Anything else we should know?</span>
           <textarea
             name="specialRequest"

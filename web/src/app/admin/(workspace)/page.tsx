@@ -188,7 +188,7 @@ async function AdminDashboard({
                 <form className="admin-reservation-search" action="/admin/reservations">
                   <label>
                     <span className="visually-hidden">Search clients or reservations</span>
-                    <input name="q" type="search" placeholder="Search clients..." />
+                    <input name="q" type="search" placeholder="Search clients…" />
                   </label>
                   <button type="submit" aria-label="Search reservations">⌕</button>
                 </form>

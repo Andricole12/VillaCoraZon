@@ -1,270 +1,461 @@
+import Image from "next/image";
 import Link from "next/link";
-import ScrollReveal from "./scroll-reveal";
+import HomeMotion from "./home-motion";
 
-const spaces = [
+const stockPhotos = {
+  reception:
+    "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85",
+  garden:
+    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=85",
+  celebration:
+    "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=85",
+};
+
+const galleryImages = [
   {
-    number: "01",
-    name: "Grand Hall",
-    description: "A welcoming main venue for weddings, celebrations, and gatherings.",
-    capacity: "Approx. 100-150 guests",
-    image:
-      "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85",
-    className: "space-card space-card-large",
+    title: "Gather around the table",
+    description: "An indoor celebration",
+    image: stockPhotos.reception,
+    imageAlt: "Illustrative stock photo of a reception hall set for a celebration",
   },
   {
-    number: "02",
-    name: "Alfresco",
-    description: "An open-air setting for relaxed celebrations and special evenings.",
-    capacity: "Approx. 50 guests",
-    image:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1100&q=85",
-    className: "space-card",
+    title: "Celebrate in the open air",
+    description: "A garden gathering",
+    image: stockPhotos.garden,
+    imageAlt: "Illustrative stock photo of an outdoor celebration among greenery",
   },
   {
-    number: "03",
-    name: "Veranda",
-    description: "A charming space for intimate occasions and smaller gatherings.",
-    capacity: "Approx. 40 guests",
-    image:
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1100&q=85",
-    className: "space-card",
+    title: "Make the evening your own",
+    description: "A table set for the occasion",
+    image: stockPhotos.celebration,
+    imageAlt: "Illustrative stock photo of a decorated event table",
+  },
+  {
+    title: "A day made for your people",
+    description: "A wedding venue in bloom",
+    image: "/images/wedding-set-up-poster.jpg",
+    imageAlt: "Illustrative stock photo of an outdoor wedding venue with floral decorations",
   },
 ];
 
-const packages = [
+const reasons = [
   {
-    name: "Day",
-    time: "A bright beginning to your celebration, with a relaxed daytime feel.",
-    label: "DAY CELEBRATION",
+    title: "A setting for your gathering",
+    description:
+      "Gather in the Grand Hall, enjoy the open-air Alfresco, or choose the more intimate Veranda.",
   },
   {
-    name: "Night",
-    time: "An evening made for gathering, sharing a meal, and making memories.",
-    label: "EVENING CELEBRATION",
+    title: "A schedule that suits your day",
+    description:
+      "Ask about Day, Night, or Whole day experiences and find the format that fits your plans.",
   },
   {
-    name: "Whole day",
-    time: "More time to settle in, celebrate, and make the day your own.",
-    label: "FULL-DAY CELEBRATION",
+    title: "Planning with the details in view",
+    description:
+      "Share your date, preferred space, and guest count. The team can confirm availability, amenities, and current rates.",
   },
 ];
+
+const questions = [
+  {
+    question: "How do I ask about a date?",
+    answer:
+      "Send an inquiry with your preferred date, event details, space, and guest count. Our team will check availability and prepare a quotation.",
+  },
+  {
+    question: "Does an inquiry hold my date?",
+    answer:
+      "No. An inquiry does not reserve or hold a date. Availability and reservation details are confirmed with our team before a reservation is finalized.",
+  },
+  {
+    question: "What celebrations can I host?",
+    answer:
+      "Villa Corazon is a setting for weddings, milestones, and meaningful gatherings. Share your plans with the team to discuss which space may suit your event.",
+  },
+  {
+    question: "What spaces can I ask about?",
+    answer:
+      "You can ask about the Grand Hall, Alfresco, and Veranda. The team can confirm current arrangements and help you choose a setting.",
+  },
+  {
+    question: "How does pricing work?",
+    answer:
+      "Rates and included services are confirmed with your quotation after the team reviews your event details.",
+  },
+];
+
+function HeartMark({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      viewBox="0 0 64 64"
+    >
+      <path d="M32 47S13 36 13 22a10 10 0 0 1 19-4 10 10 0 0 1 19 4c0 14-19 25-19 25Z" />
+      <path d="M4 28h10m36 0h10M10 21c4-5 8-7 14-8m30 8c-4-5-8-7-14-8" />
+      <path d="M13 18c4-1 7 0 9 4-4 2-7 1-9-4Zm38 0c-4-1-7 0-9 4 4 2 7 1 9-4Z" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <ScrollReveal>
-      <header className="site-header">
-        <a className="brand" href="#home" aria-label="Villa Corazon home">
-          <span className="brand-mark" aria-hidden="true">
-            VC
-          </span>
-          <span className="brand-name">
+    <HomeMotion>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
+
+      <header className="villa-home__header">
+        <a
+          aria-label="Villa Corazon Events Place home"
+          className="villa-home__brand"
+          href="#home"
+        >
+          <HeartMark className="villa-home__brand-mark" />
+          <span>
             <strong>VILLA CORAZON</strong>
-            <span>EVENTS PLACE</span>
+            <small>EVENTS PLACE</small>
           </span>
         </a>
-        <nav className="main-nav" aria-label="Main navigation">
-          <a href="#story">Our story</a>
-          <a href="#spaces">The spaces</a>
-          <a href="#packages">Packages</a>
-          <Link href="/track">Track reservation</Link>
+
+        <nav aria-label="Main navigation" className="villa-home__nav">
+          <a href="#reasons">Why Villa Corazon</a>
+          <a href="#about">The venue</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <details className="mobile-menu">
-          <summary>
-            Explore <span aria-hidden="true">⌄</span>
-          </summary>
+
+        <details className="villa-home__mobile-menu">
+          <summary>Explore</summary>
           <nav aria-label="Mobile navigation">
-            <a href="#story">Our story</a>
-            <a href="#spaces">The spaces</a>
-            <a href="#packages">Packages</a>
+            <a href="#reasons">Why Villa Corazon</a>
+            <a href="#about">The venue</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
             <Link href="/track">Track reservation</Link>
           </nav>
         </details>
-        <Link className="button button-outline header-cta" href="/reserve">
-          Reserve a date <span aria-hidden="true">↗</span>
+
+        <Link className="villa-home__header-cta" href="/reserve">
+          Inquire <span aria-hidden="true">↗</span>
         </Link>
       </header>
 
-      <main>
-        <section className="hero" id="home">
-          <div className="hero-image" aria-hidden="true" />
-          <div className="hero-content" data-reveal>
-            <p className="eyebrow eyebrow-light">
-              YOUR CELEBRATION, BEAUTIFULLY HELD
-            </p>
-            <h1>
-              Where your story
-              <br />
-              comes to <em>life.</em>
+      <main id="main-content">
+        <section
+          aria-labelledby="villa-home-title"
+          className="villa-home__hero"
+          data-home-hero
+          id="home"
+        >
+          <figure aria-hidden="true" className="villa-home__hero-media">
+            <video
+              className="villa-home__hero-video"
+              data-home-video
+              loop
+              muted
+              playsInline
+              poster="/images/wedding-set-up-poster.jpg"
+              preload="metadata"
+            >
+              <source src="/video/wedding-set-up.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <div className="villa-home__hero-copy" data-home-hero-copy>
+            <h1
+              className="villa-home__hero-title"
+              data-home-title
+              data-home-word
+              id="villa-home-title"
+            >
+              A place for your people.
             </h1>
-            <p className="hero-copy">
-              An intimate garden and events place thoughtfully designed for
-              weddings, milestones, and meaningful days together.
+          </div>
+        </section>
+
+        <div
+          aria-hidden="true"
+          className="villa-home__marquee"
+          data-home-marquee
+        >
+          <div className="villa-home__marquee-track" data-home-marquee-track>
+            <span>GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE · </span>
+            <span>GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE · </span>
+          </div>
+        </div>
+
+        <section
+          aria-labelledby="villa-home-reasons-title"
+          className="villa-home__reasons"
+          id="reasons"
+        >
+          <div className="villa-home__reasons-intro">
+            <h2 id="villa-home-reasons-title">Why choose Villa Corazon?</h2>
+            <p>
+              A gathering feels more personal when the place, the plan, and
+              your people come together.
             </p>
-            <div className="hero-actions">
-              <a className="button button-light" href="#spaces">
-                Explore spaces &amp; dates <span aria-hidden="true">→</span>
+          </div>
+          <div className="villa-home__reasons-content">
+            <ul className="villa-home__reason-list">
+              {reasons.map((reason) => (
+                <li className="villa-home__reason" key={reason.title}>
+                  <h3 data-home-reveal>{reason.title}</h3>
+                  <p data-home-reveal>{reason.description}</p>
+                </li>
+              ))}
+            </ul>
+            <figure className="villa-home__reasons-image" data-home-reveal>
+              <div className="villa-home__reasons-image-window">
+                <Image
+                  alt="Illustrative stock photo of a celebration table set with flowers and place settings"
+                  fill
+                  sizes="(max-width: 700px) 100vw, 48vw"
+                  src={stockPhotos.garden}
+                  unoptimized
+                />
+              </div>
+              <figcaption>
+                <span>A table set for the occasion.</span>
+                <small>
+                  An illustrative event setting; ask our team about current
+                  venue arrangements.
+                </small>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="villa-home-about-title"
+          className="villa-home__about"
+          id="about"
+        >
+          <div className="villa-home__about-intro">
+            <h2 data-home-reveal id="villa-home-about-title">
+              A welcoming place to gather.
+            </h2>
+            <div className="villa-home__about-copy" data-home-reveal>
+              <p>
+                From the Grand Hall to the open-air Alfresco and intimate
+                Veranda, Villa Corazon offers different settings for the
+                moments you want to share.
+              </p>
+              <a className="villa-home__text-link" href="#villa-home-gallery">
+                Explore the gallery <span aria-hidden="true">↓</span>
               </a>
-              <Link className="text-link text-link-light" href="/reserve">
-                <span className="hero-play" aria-hidden="true">▶</span>
-                Start planning
+            </div>
+          </div>
+
+          <div className="villa-home__venue-details">
+            <div className="villa-home__venue-spaces">
+              <h3>Three spaces to make your own.</h3>
+              <ul>
+                <li>
+                  <strong>Grand Hall</strong>
+                  <span>An indoor setting for a celebration together.</span>
+                </li>
+                <li>
+                  <strong>Alfresco</strong>
+                  <span>An open-air space for gathering.</span>
+                </li>
+                <li>
+                  <strong>Veranda</strong>
+                  <span>A more intimate setting for your occasion.</span>
+                </li>
+              </ul>
+            </div>
+            <div className="villa-home__venue-planning">
+              <h3>Plans, amenities, and pricing</h3>
+              <p>
+                Ask about Day, Night, or Whole day events. Guest capacity,
+                amenities, included services, and current rates are confirmed
+                with the team for your chosen space and date.
+              </p>
+              <Link className="villa-home__text-link" href="/reserve">
+                Ask for a quotation <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>
-          <div className="hero-index" aria-hidden="true">
-            VILLA CORAZON <span /> PHILIPPINES
-          </div>
-        </section>
 
-        <section className="intro-section section-wrap" id="story">
-          <div className="intro-collage" data-reveal>
-            <div
-              className="intro-image intro-image-garden"
-              role="img"
-              aria-label="Garden event setting"
-            />
-            <div
-              className="intro-image intro-image-venue"
-              role="img"
-              aria-label="Villa Corazon event venue"
-            />
-            <span className="intro-image-seal">MADE FOR<br />MEANINGFUL<br />MOMENTS</span>
-          </div>
-          <div className="intro-story" data-reveal>
-            <p className="eyebrow">A HOME FOR YOUR MOST IMPORTANT DAYS</p>
-            <h2>
-              A little sanctuary,
-              <br />
-              <em>made for gathering.</em>
-            </h2>
-            <p className="intro-story-copy">
-              At Villa Corazon, the setting is part of the celebration. Bring
-              your favorite people together in a welcoming space, surrounded by
-              thoughtful details and room to make the day your own.
-            </p>
-            <div className="intro-stats">
-              <div><strong>150</strong><span>Approx. Grand Hall capacity</span></div>
-              <div><strong>3</strong><span>Featured event spaces</span></div>
-              <div><strong>VC</strong><span>Gather with corazon</span></div>
-            </div>
-          </div>
-        </section>
-
-        <section className="spaces-section" id="spaces">
-          <div className="section-wrap">
-            <div className="section-heading" data-reveal>
-              <div>
-                <p className="eyebrow">FIND YOUR SETTING</p>
-                <h2>Spaces with <em>a sense of place.</em></h2>
-              </div>
-              <p className="section-heading-copy">
-                From garden gatherings to grand celebrations, find a setting
-                that feels right for your day.
-              </p>
-            </div>
-
-            <div className="spaces-grid">
-              {spaces.map((space) => (
-                <article className={space.className} data-reveal key={space.name}>
-                  <div
-                    className="space-image"
-                    role="img"
-                    aria-label={`${space.name} event space`}
-                    style={{ backgroundImage: `url("${space.image}")` }}
-                  >
-                    <span className="space-number">{space.number}</span>
-                    <span className="space-image-copy">
-                      <small>{space.capacity}</small>
-                      <strong>{space.name}</strong>
-                      <span>EXPLORE THIS SPACE <b aria-hidden="true">↗</b></span>
-                    </span>
-                  </div>
-                  <div className="space-info">
-                    <p>{space.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <p className="fine-print">
-              Capacities are approximate. Please ask our team to confirm
-              current venue details and arrangements.
-            </p>
-          </div>
-        </section>
-
-        <section className="packages-section" id="packages">
-          <div className="section-wrap">
-            <div className="packages-intro" data-reveal>
-              <p className="eyebrow">CELEBRATIONS, CONSIDERED</p>
-              <h2>Choose your <em>experience.</em></h2>
-              <p>
-                Tell us what you are planning. We will help shape the details
-                and prepare a quotation for your event.
-              </p>
-            </div>
-            <div className="package-list">
-              {packages.map((item, index) => (
-                <article
-                  className={`package-item${index === 1 ? " package-item-featured" : ""}`}
-                  data-reveal
-                  key={item.name}
+          <div
+            aria-label="Celebration settings"
+            aria-roledescription="carousel"
+            className="villa-home__gallery"
+            data-gallery-carousel
+            id="villa-home-gallery"
+            role="region"
+          >
+            <div className="villa-home__gallery-heading">
+              <h3 data-home-reveal>Imagine the gathering.</h3>
+              <div className="villa-home__gallery-controls">
+                <p id="villa-home-gallery-help">
+                  Auto-advances. Drag, swipe, or use the arrow keys to explore.
+                </p>
+                <button
+                  aria-controls="villa-home-gallery-track"
+                  aria-label="Pause automatic gallery scrolling"
+                  aria-pressed="false"
+                  data-gallery-toggle
+                  type="button"
                 >
-                  {index === 1 ? <span className="package-featured-label">A TIME TO CELEBRATE</span> : null}
-                  <span className="package-index">0{index + 1}</span>
-                  <div>
-                    <span className="package-label">{item.label}</span>
-                    <h3>{item.name}</h3>
-                    <p>{item.time}</p>
-                    <strong className="package-price">Quotation on request</strong>
-                    <span className="package-detail">Details tailored to your event</span>
-                  </div>
-                  <Link className="package-cta" href="/reserve">
-                    Check availability <span aria-hidden="true">→</span>
-                  </Link>
-                </article>
-              ))}
+                  Pause
+                </button>
+              </div>
             </div>
-            <p className="package-note" data-reveal>
-              Rates and included services are confirmed with your quotation.
+
+            <ul
+              aria-label="Celebration setting photos"
+              className="villa-home__gallery-track"
+              data-gallery-track
+              aria-describedby="villa-home-gallery-help"
+              id="villa-home-gallery-track"
+              tabIndex={0}
+            >
+              {galleryImages.map((photo, index) => (
+                <li
+                  aria-label={`${index + 1} of ${galleryImages.length}`}
+                  aria-roledescription="slide"
+                  className="villa-home__gallery-item"
+                  data-gallery-item
+                  data-home-reveal
+                  key={photo.title}
+                  role="group"
+                >
+                  <figure>
+                    <div className="villa-home__gallery-window">
+                      <Image
+                        alt={photo.imageAlt}
+                        fill
+                        sizes="(max-width: 700px) 84vw, 48vw"
+                        src={photo.image}
+                        unoptimized
+                      />
+                    </div>
+                    <figcaption>
+                      <span>{photo.title}</span>
+                      <small>{photo.description}</small>
+                    </figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+            <p className="villa-home__gallery-note">
+              Illustrative stock photos. Ask our team about current venue
+              arrangements.
             </p>
           </div>
         </section>
 
-        <section className="process-callout" id="process" data-reveal>
-          <span className="callout-star" aria-hidden="true">✦</span>
-          <p className="eyebrow eyebrow-light">LET&apos;S MAKE IT A DAY TO REMEMBER</p>
-          <h2>Your date may still be waiting.</h2>
-          <p>
-            Tell us what you are dreaming of. We&apos;ll be in touch with the
-            details to help make it real.
-          </p>
-          <Link className="button button-light" href="/reserve">
-            Start your reservation <span aria-hidden="true">→</span>
+        <section
+          aria-labelledby="villa-home-reviews-title"
+          className="villa-home__reviews"
+          id="reviews"
+        >
+          <div data-home-reveal>
+            <h2 id="villa-home-reviews-title">Client reviews</h2>
+            <p>
+              We want this space to reflect real experiences from celebrations
+              at Villa Corazon.
+            </p>
+          </div>
+          <div className="villa-home__reviews-pending" data-home-reveal>
+            <strong>Reviews coming soon.</strong>
+            <p>
+              Verified guest feedback will appear here once it is collected
+              and approved.
+            </p>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="villa-home-faq-title"
+          className="villa-home__faq"
+          id="faq"
+        >
+          <div className="villa-home__faq-intro" data-home-reveal>
+            <h2 id="villa-home-faq-title">A few things to know.</h2>
+            <p>
+              Helpful details before you start planning your celebration.
+            </p>
+          </div>
+          <div className="villa-home__faq-list">
+            {questions.map((item, index) => (
+              <details
+                className="villa-home__faq-item"
+                data-home-reveal
+                key={item.question}
+                open={index === 0}
+              >
+                <summary>
+                  <span>{item.question}</span>
+                  <span aria-hidden="true" className="villa-home__faq-toggle">
+                    +
+                  </span>
+                </summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="villa-home-booking-title"
+          className="villa-home__booking"
+          id="booking"
+        >
+          <div className="villa-home__booking-copy" data-home-reveal>
+            <h2 id="villa-home-booking-title">
+              Let&apos;s make room for your celebration.
+            </h2>
+            <p>
+              Share your preferred date, space, and guest count. Our team will
+              check availability and prepare a quotation for your event.
+            </p>
+            <p className="villa-home__booking-note">
+              An inquiry does not hold a date. Availability is confirmed with
+              the team before a reservation is finalized.
+            </p>
+          </div>
+          <Link className="villa-home__button" href="/reserve">
+            Request a quotation <span aria-hidden="true">↗</span>
           </Link>
         </section>
       </main>
 
-      <footer className="site-footer" data-reveal>
-        <a className="brand brand-footer" href="#home" aria-label="Villa Corazon home">
-          <span className="brand-mark" aria-hidden="true">
-            VC
-          </span>
-          <span className="brand-name">
-            <strong>VILLA CORAZON</strong>
-            <span>EVENTS PLACE</span>
-          </span>
-        </a>
-        <p>A welcoming place to gather, celebrate, and make memories.</p>
-        <nav className="footer-nav" aria-label="Footer navigation">
-          <a href="#story">Our story</a>
-          <a href="#spaces">The spaces</a>
-          <a href="#packages">Packages</a>
-          <Link href="/track">Track</Link>
-        </nav>
-        <a className="footer-top" href="#home">
-          Back to top <span aria-hidden="true">↑</span>
-        </a>
-        <small>Venue details and pricing are subject to confirmation.</small>
+      <footer className="villa-home__footer">
+        <div className="villa-home__footer-top">
+          <a className="villa-home__footer-brand" href="#home">
+            VILLA CORAZON
+          </a>
+          <nav aria-label="Footer navigation">
+            <a href="#reasons">Why Villa Corazon</a>
+            <a href="#about">The venue</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+            <Link href="/track">Track reservation</Link>
+            <Link href="/reserve">Request a quote</Link>
+          </nav>
+        </div>
+        <div className="villa-home__footer-bottom">
+          <span>Villa Corazon Events Place</span>
+          <span>Venue details and pricing are confirmed with your quotation.</span>
+          <a href="#home">Back to top ↑</a>
+        </div>
+        <p className="villa-home__credits">
+          Illustrative venue photos via Unsplash. Hero footage,{" "}
+          <a
+            href="https://www.pexels.com/video/a-wedding-set-up-3936461/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            &ldquo;A Wedding Set Up&rdquo; by viresh studio via Pexels
+          </a>
+          .
+        </p>
       </footer>
-    </ScrollReveal>
+    </HomeMotion>
   );
 }

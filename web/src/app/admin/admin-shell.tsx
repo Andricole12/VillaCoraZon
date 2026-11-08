@@ -13,6 +13,9 @@ export function AdminShell({
 }) {
   return (
     <div className="admin-dashboard">
+      <a className="skip-link" href="#admin-main-content">
+        Skip to main content
+      </a>
       <AdminSidebar adminName={adminName} adminRole={adminRole} />
       <div className="admin-main">
         <header className="admin-header">
@@ -34,7 +37,9 @@ export function AdminShell({
             </form>
           </div>
         </header>
-        {children}
+        <div id="admin-main-content" tabIndex={-1}>
+          {children}
+        </div>
       </div>
     </div>
   );

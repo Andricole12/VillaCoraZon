@@ -16,7 +16,7 @@ export default function ReservationFormLayout({
   const [packageId, setPackageId] = useState("");
 
   return (
-    <section className="reserve-main">
+    <main className="reserve-main" id="main-content">
       <div className="reserve-heading">
         {children}
         <AvailabilityCalendar
@@ -29,6 +29,11 @@ export default function ReservationFormLayout({
       </div>
 
       <div className="reserve-form-wrap">
+        <ol className="reserve-steps" aria-label="Reservation process">
+          <li><span>01</span><strong>Send an inquiry</strong></li>
+          <li><span>02</span><strong>Review your quote</strong></li>
+          <li><span>03</span><strong>Confirm with deposit</strong></li>
+        </ol>
         <InquiryForm
           minDate={minDate}
           packageId={packageId}
@@ -49,6 +54,6 @@ export default function ReservationFormLayout({
           </p>
         </aside>
       </div>
-    </section>
+    </main>
   );
 }

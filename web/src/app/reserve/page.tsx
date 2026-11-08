@@ -34,7 +34,10 @@ async function ReservationExperience() {
 
 export default function ReservePage() {
   return (
-    <main className="reserve-page">
+    <div className="reserve-page">
+      <a className="skip-link" href="#main-content">
+        Skip to reservation form
+      </a>
       <header className="site-header reserve-header">
         <Link className="brand" href="/" aria-label="Villa Corazon home">
           <span className="brand-mark" aria-hidden="true">
@@ -57,11 +60,11 @@ export default function ReservePage() {
 
       <Suspense
         fallback={
-          <section className="reserve-main">
+          <section className="reserve-main" id="main-content">
             <div className="reserve-heading" />
             <div className="reserve-form-wrap">
               <div className="inquiry-form-loading" role="status">
-                Loading reservation form...
+                Loading reservation form…
               </div>
             </div>
           </section>
@@ -73,6 +76,6 @@ export default function ReservePage() {
       <footer className="reserve-footer">
         Villa Corazon Events Place <span>·</span> A welcoming place to gather
       </footer>
-    </main>
+    </div>
   );
 }

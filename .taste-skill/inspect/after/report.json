@@ -1,0 +1,2676 @@
+{
+ "url": "http://localhost:3001",
+ "at": "2026-11-01T14:22:27.891Z",
+ "allow": [
+  "gradient",
+  "side-scroll"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.88,
+    0.39,
+    1,
+    0.56,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 26,
+    "css": 1,
+    "transitions": 0,
+    "scripted": 25,
+    "videos": 1,
+    "playingVideos": 1
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 5089,
+     "screens": 5.7,
+     "words": 420,
+     "img": 4,
+     "video": 1,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 1,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo-1519167758481-83f550bb49b3?auto=format&fit",
+      "photo-1511795409834-ef04bbd61622?auto=format&fit",
+      "photo-1464366400600-7168b8af9bc3?auto=format&fit",
+      "wedding-set-up-poster.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A place for your people.",
+     "words": 5,
+     "chars": 24,
+     "lines": 2,
+     "size": 132.5,
+     "vw": 9.2,
+     "font": "Georgia",
+     "weight": 400,
+     "tracking": -0.065,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.65,
+     "top": 437,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A place for your people.",
+     "words": 5,
+     "lines": 2,
+     "size": 132.5,
+     "font": "Georgia"
+    },
+    "headings": [
+     {
+      "text": "A place for your people.",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 132.5,
+      "vw": 9.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.065,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.65,
+      "top": 437,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE · GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE ·",
+      "words": 20,
+      "chars": 99,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 0.95,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 900,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Why choose Villa Corazon?",
+      "words": 4,
+      "chars": 25,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 1183,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Three spaces, distinct moods",
+      "words": 4,
+      "chars": 28,
+      "lines": 2,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1183,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A day shaped around you",
+      "words": 5,
+      "chars": 23,
+      "lines": 2,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1319,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A clear first step",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 1456,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A welcoming place to gather.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 1823,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "←",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Arial",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.03,
+      "top": 2076,
+      "tag": "button",
+      "kind": "heading"
+     },
+     {
+      "text": "→",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Arial",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.03,
+      "top": 2076,
+      "tag": "button",
+      "kind": "heading"
+     },
+     {
+      "text": "Imagine the gathering.",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 2082,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Gather around the table",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 2594,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Celebrate in the open air",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.24,
+      "top": 2594,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Make the evening your own",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.27,
+      "top": 2594,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "A day made for your people",
+      "words": 6,
+      "chars": 26,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.27,
+      "top": 2594,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Client reviews",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 3007,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Reviews coming soon.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 3075,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "A few things to know.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 3555,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "How do I ask about a date? +",
+      "words": 8,
+      "chars": 28,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 3573,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "Does an inquiry hold my date? +",
+      "words": 7,
+      "chars": 31,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 3734,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "What celebrations can I host? +",
+      "words": 6,
+      "chars": 31,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 3825,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "What spaces can I ask about? +",
+      "words": 7,
+      "chars": 30,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 3917,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "How does pricing work? +",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 4008,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "Let's make room for your celebration.",
+      "words": 6,
+      "chars": 37,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 4354,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "VILLA CORAZON",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 132.5,
+      "vw": 9.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.085,
+      "leading": 0.78,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 4786,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 24,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 2,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Arial",
+       "share": 0.79,
+       "mono": false
+      },
+      {
+       "family": "Georgia",
+       "share": 0.21,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      32,
+      58,
+      133
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Arial",
+      "size": 16,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 65,
+     "max": {
+      "size": 132.5,
+      "vw": 9.2,
+      "font": "Georgia",
+      "text": "A place for your people."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f5",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.11,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f7f5",
+       "top": 0,
+       "hsl": {
+        "h": 60,
+        "s": 0.11,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#101f36",
+       "top": 0,
+       "hsl": {
+        "h": 216,
+        "s": 0.54,
+        "l": 0.14
+       }
+      },
+      {
+       "color": "#e9edf2",
+       "top": 1679,
+       "hsl": {
+        "h": 213,
+        "s": 0.26,
+        "l": 0.93
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d2b42",
+       "share": 0.63
+      },
+      {
+       "color": "#f7f7f5",
+       "share": 0.19
+      },
+      {
+       "color": "#d7d9ca",
+       "share": 0.07
+      },
+      {
+       "color": "#616b7b",
+       "share": 0.06
+      },
+      {
+       "color": "#d7dce5",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#c8a75e",
+      "hsl": {
+       "h": 41,
+       "s": 0.49,
+       "l": 0.58
+      },
+      "fg": "#101f36"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Inquire ↗",
+      "Plan your celebration ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "section#booking.villa-home__booking → linear-gradient(118deg, rgb(16, 31, 54) 0%, rgb(35, 61, 96) 54%, rgb(20, 36, 61) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "video",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 94,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 5089,
+    "margins": {
+     "left": 66,
+     "right": 66
+    },
+    "sections": [
+     {
+      "sel": "section#home.villa-home__hero",
+      "tag": "section",
+      "top": 0,
+      "height": 900,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "A place for your people.",
+       "size": 132,
+       "tag": "h1"
+      },
+      "left": 66,
+      "right": 589,
+      "textLeft": 66,
+      "textRight": 589,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.villa-home__marquee",
+      "tag": "div",
+      "top": 900,
+      "height": 139,
+      "words": 20,
+      "media": 0,
+      "middle": 12,
+      "heading": {
+       "text": "GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE ·",
+       "size": 58,
+       "tag": "span"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 0,
+      "textRight": 0,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#reasons.villa-home__reasons",
+      "tag": "section",
+      "top": 1039,
+      "height": 641,
+      "words": 84,
+      "media": 0,
+      "middle": 193,
+      "heading": {
+       "text": "Why choose Villa Corazon?",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 66,
+      "right": 78,
+      "textLeft": 66,
+      "textRight": 78,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.villa-home__about",
+      "tag": "section",
+      "top": 1679,
+      "height": 1183,
+      "words": 63,
+      "media": 4,
+      "middle": 622,
+      "heading": {
+       "text": "A welcoming place to gather.",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 66,
+      "right": 0,
+      "textLeft": 66,
+      "textRight": 181,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#reviews.villa-home__reviews",
+      "tag": "section",
+      "top": 2863,
+      "height": 548,
+      "words": 32,
+      "media": 0,
+      "middle": 257,
+      "heading": {
+       "text": "Client reviews",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 66,
+      "right": 196,
+      "textLeft": 66,
+      "textRight": 196,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.villa-home__faq",
+      "tag": "section",
+      "top": 3411,
+      "height": 799,
+      "words": 159,
+      "media": 0,
+      "middle": 197,
+      "heading": {
+       "text": "A few things to know.",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 66,
+      "right": 259,
+      "textLeft": 66,
+      "textRight": 259,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#booking.villa-home__booking",
+      "tag": "section",
+      "top": 4210,
+      "height": 542,
+      "words": 49,
+      "media": 0,
+      "middle": 558,
+      "heading": {
+       "text": "Let's make room for your celebration.",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 66,
+      "right": 117,
+      "textLeft": 66,
+      "textRight": 117,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.villa-home__footer",
+      "tag": "footer",
+      "top": 4752,
+      "height": 337,
+      "words": 50,
+      "media": 0,
+      "middle": 307,
+      "heading": {
+       "text": "VILLA CORAZON",
+       "size": 132,
+       "tag": "a"
+      },
+      "left": 66,
+      "right": 66,
+      "textLeft": 66,
+      "textRight": 66,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 1532,
+      "height": 284
+     },
+     {
+      "top": 2716,
+      "height": 284
+     },
+     {
+      "top": 3196,
+      "height": 352
+     }
+    ],
+    "h1s": [
+     {
+      "text": "A place for your people.",
+      "size": 132,
+      "top": 438,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 66,
+      "n": 13
+     },
+     {
+      "x": 667,
+      "n": 5
+     },
+     {
+      "x": 785,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 20,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.96,
+    0.64,
+    0.78,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 26,
+    "css": 1,
+    "transitions": 0,
+    "scripted": 25,
+    "videos": 1,
+    "playingVideos": 1
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4416,
+     "screens": 4.3,
+     "words": 414,
+     "img": 4,
+     "video": 1,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 1,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo-1519167758481-83f550bb49b3?auto=format&fit",
+      "photo-1511795409834-ef04bbd61622?auto=format&fit",
+      "wedding-set-up-poster.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A place for your people.",
+     "words": 5,
+     "chars": 24,
+     "lines": 2,
+     "size": 70.7,
+     "vw": 9.2,
+     "font": "Georgia",
+     "weight": 400,
+     "tracking": -0.065,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.67,
+     "top": 651,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A place for your people.",
+     "words": 5,
+     "lines": 2,
+     "size": 70.7,
+     "font": "Georgia"
+    },
+    "headings": [
+     {
+      "text": "A place for your people.",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 70.7,
+      "vw": 9.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.065,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.67,
+      "top": 651,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE · GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE ·",
+      "words": 20,
+      "chars": 99,
+      "lines": 1,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 0.95,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 1024,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Why choose Villa Corazon?",
+      "words": 4,
+      "chars": 25,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 1194,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "A welcoming place to gather.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 1712,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Client reviews",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 2698,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "A few things to know.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 3096,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Let's make room for your celebration.",
+      "words": 6,
+      "chars": 37,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.6,
+      "top": 3740,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "VILLA CORAZON",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 70.7,
+      "vw": 9.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.085,
+      "leading": 0.78,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 4161,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Arial",
+       "share": 0.79,
+       "mono": false
+      },
+      {
+       "family": "Georgia",
+       "share": 0.21,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      22,
+      42,
+      71
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Arial",
+      "size": 16,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 42,
+     "max": {
+      "size": 70.7,
+      "vw": 9.2,
+      "font": "Georgia",
+      "text": "A place for your people."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f5",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.11,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f7f5",
+       "top": 0,
+       "hsl": {
+        "h": 60,
+        "s": 0.11,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#101f36",
+       "top": 0,
+       "hsl": {
+        "h": 216,
+        "s": 0.54,
+        "l": 0.14
+       }
+      },
+      {
+       "color": "#e9edf2",
+       "top": 1628,
+       "hsl": {
+        "h": 213,
+        "s": 0.26,
+        "l": 0.93
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d2b42",
+       "share": 0.65
+      },
+      {
+       "color": "#f7f7f5",
+       "share": 0.18
+      },
+      {
+       "color": "#d7d9ca",
+       "share": 0.07
+      },
+      {
+       "color": "#616b7b",
+       "share": 0.06
+      },
+      {
+       "color": "#d7dce5",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#c8a75e",
+      "hsl": {
+       "h": 41,
+       "s": 0.49,
+       "l": 0.58
+      },
+      "fg": "#101f36"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Inquire ↗",
+      "Plan your celebration ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "section#booking.villa-home__booking → linear-gradient(118deg, rgb(16, 31, 54) 0%, rgb(35, 61, 96) 54%, rgb(20, 36, 61) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "video",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 94,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4416,
+    "margins": {
+     "left": 35,
+     "right": 35
+    },
+    "sections": [
+     {
+      "sel": "section#home.villa-home__hero",
+      "tag": "section",
+      "top": 0,
+      "height": 1024,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 35,
+      "right": 279,
+      "textLeft": 35,
+      "textRight": 279,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#reasons.villa-home__reasons",
+      "tag": "section",
+      "top": 1110,
+      "height": 518,
+      "words": 84,
+      "media": 0,
+      "middle": 53,
+      "heading": {
+       "text": "Why choose Villa Corazon?",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 37,
+      "textLeft": 35,
+      "textRight": 37,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.villa-home__about",
+      "tag": "section",
+      "top": 1628,
+      "height": 986,
+      "words": 63,
+      "media": 4,
+      "middle": 700,
+      "heading": {
+       "text": "A welcoming place to gather.",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 0,
+      "textLeft": 35,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#reviews.villa-home__reviews",
+      "tag": "section",
+      "top": 2614,
+      "height": 398,
+      "words": 32,
+      "media": 0,
+      "middle": 94,
+      "heading": {
+       "text": "Client reviews",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 89,
+      "textLeft": 35,
+      "textRight": 89,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.villa-home__faq",
+      "tag": "section",
+      "top": 3012,
+      "height": 645,
+      "words": 159,
+      "media": 0,
+      "middle": 80,
+      "heading": {
+       "text": "A few things to know.",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 78,
+      "textLeft": 35,
+      "textRight": 78,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#booking.villa-home__booking",
+      "tag": "section",
+      "top": 3656,
+      "height": 471,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Let's make room for your celebration.",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 227,
+      "textLeft": 35,
+      "textRight": 227,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.villa-home__footer",
+      "tag": "footer",
+      "top": 4127,
+      "height": 289,
+      "words": 50,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "VILLA CORAZON",
+       "size": 71,
+       "tag": "a"
+      },
+      "left": 35,
+      "right": 35,
+      "textLeft": 35,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A place for your people.",
+      "size": 71,
+      "top": 652,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 35,
+      "n": 14
+     },
+     {
+      "x": 357,
+      "n": 5
+     },
+     {
+      "x": 395,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 20,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.99,
+    0.48,
+    1,
+    0.68,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 26,
+    "css": 1,
+    "transitions": 0,
+    "scripted": 25,
+    "videos": 1,
+    "playingVideos": 1
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4888,
+     "screens": 5.8,
+     "words": 414,
+     "img": 4,
+     "video": 1,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 1,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo-1519167758481-83f550bb49b3?auto=format&fit",
+      "photo-1511795409834-ef04bbd61622?auto=format&fit",
+      "wedding-set-up-poster.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A place for your people.",
+     "words": 5,
+     "chars": 24,
+     "lines": 2,
+     "size": 52,
+     "vw": 13.3,
+     "font": "Georgia",
+     "weight": 400,
+     "tracking": -0.065,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.89,
+     "top": 522,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A place for your people.",
+     "words": 5,
+     "lines": 2,
+     "size": 52,
+     "font": "Georgia"
+    },
+    "headings": [
+     {
+      "text": "A place for your people.",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 52,
+      "vw": 13.3,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.065,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 522,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE · GATHER WITH CORAZON · MAKE ROOM FOR YOUR PEOPLE ·",
+      "words": 20,
+      "chars": 99,
+      "lines": 1,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 0.95,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 844,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Why choose Villa Corazon?",
+      "words": 4,
+      "chars": 25,
+      "lines": 2,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.73,
+      "top": 1016,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Three spaces, distinct moods",
+      "words": 4,
+      "chars": 28,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1209,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A day shaped around you",
+      "words": 5,
+      "chars": 23,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1324,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A clear first step",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1466,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A welcoming place to gather.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 1756,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Imagine the gathering.",
+      "words": 3,
+      "chars": 22,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 2072,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "←",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Arial",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.11,
+      "top": 2079,
+      "tag": "button",
+      "kind": "heading"
+     },
+     {
+      "text": "→",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Arial",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 2079,
+      "tag": "button",
+      "kind": "heading"
+     },
+     {
+      "text": "Gather around the table",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.6,
+      "top": 2423,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Celebrate in the open air",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.61,
+      "top": 2423,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Make the evening your own",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.69,
+      "top": 2423,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "A day made for your people",
+      "words": 6,
+      "chars": 26,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.68,
+      "top": 2423,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Client reviews",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.66,
+      "top": 2727,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Reviews coming soon.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 2913,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "A few things to know.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.66,
+      "top": 3244,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "How do I ask about a date? +",
+      "words": 8,
+      "chars": 28,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3451,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "Does an inquiry hold my date? +",
+      "words": 7,
+      "chars": 31,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3638,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "What celebrations can I host? +",
+      "words": 6,
+      "chars": 31,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3703,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "What spaces can I ask about? +",
+      "words": 7,
+      "chars": 30,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3769,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "How does pricing work? +",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3834,
+      "tag": "summary",
+      "kind": "heading"
+     },
+     {
+      "text": "Let's make room for your celebration.",
+      "words": 6,
+      "chars": 37,
+      "lines": 2,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.055,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4052,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "VILLA CORAZON",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Georgia",
+      "weight": 400,
+      "tracking": -0.085,
+      "leading": 0.78,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4489,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 24,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 2,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Arial",
+       "share": 0.79,
+       "mono": false
+      },
+      {
+       "family": "Georgia",
+       "share": 0.21,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      22,
+      32,
+      42,
+      52
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Arial",
+      "size": 16,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 52,
+      "vw": 13.3,
+      "font": "Georgia",
+      "text": "A place for your people."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f5",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.11,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f7f5",
+       "top": 0,
+       "hsl": {
+        "h": 60,
+        "s": 0.11,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#101f36",
+       "top": 0,
+       "hsl": {
+        "h": 216,
+        "s": 0.54,
+        "l": 0.14
+       }
+      },
+      {
+       "color": "#e9edf2",
+       "top": 1668,
+       "hsl": {
+        "h": 213,
+        "s": 0.26,
+        "l": 0.93
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d2b42",
+       "share": 0.65
+      },
+      {
+       "color": "#f7f7f5",
+       "share": 0.18
+      },
+      {
+       "color": "#d7d9ca",
+       "share": 0.07
+      },
+      {
+       "color": "#616b7b",
+       "share": 0.06
+      },
+      {
+       "color": "#d7dce5",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#c8a75e",
+      "hsl": {
+       "h": 41,
+       "s": 0.49,
+       "l": 0.58
+      },
+      "fg": "#101f36"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Inquire ↗",
+      "Plan your celebration ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "section#booking.villa-home__booking → linear-gradient(118deg, rgb(16, 31, 54) 0%, rgb(35, 61, 96) 54%, rgb(20, 36, 61) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "video",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 74,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 4888,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section#home.villa-home__hero",
+      "tag": "section",
+      "top": 0,
+      "height": 844,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "A place for your people.",
+       "size": 52,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 62,
+      "textLeft": 20,
+      "textRight": 62,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#reasons.villa-home__reasons",
+      "tag": "section",
+      "top": 928,
+      "height": 740,
+      "words": 84,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Why choose Villa Corazon?",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 27,
+      "textLeft": 20,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.villa-home__about",
+      "tag": "section",
+      "top": 1668,
+      "height": 971,
+      "words": 63,
+      "media": 4,
+      "middle": 661,
+      "heading": {
+       "text": "A welcoming place to gather.",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 0,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#reviews.villa-home__reviews",
+      "tag": "section",
+      "top": 2639,
+      "height": 517,
+      "words": 32,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Client reviews",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 44,
+      "textLeft": 20,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.villa-home__faq",
+      "tag": "section",
+      "top": 3156,
+      "height": 808,
+      "words": 159,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A few things to know.",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 40,
+      "textLeft": 20,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#booking.villa-home__booking",
+      "tag": "section",
+      "top": 3964,
+      "height": 497,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Let's make room for your celebration.",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 25,
+      "textLeft": 20,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.villa-home__footer",
+      "tag": "footer",
+      "top": 4461,
+      "height": 427,
+      "words": 50,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "VILLA CORAZON",
+       "size": 42,
+       "tag": "a"
+      },
+      "left": 20,
+      "right": 24,
+      "textLeft": 20,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A place for your people.",
+      "size": 52,
+      "top": 522,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 19
+     },
+     {
+      "x": 46,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 20,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "empty-middle",
+   "width": 768,
+   "message": "1 section(s) have content at both edges and 700px of nothing between: \"A welcoming place to gather.\"",
+   "fix": "Bring the two parts together on the grid, or put the picture or figure of the section in the middle. An empty middle third reads as a hole, the same as an empty half."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\desktop-page-01.jpg",
+    "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\Jennifer\\Documents\\VillaCoraZon\\.taste-skill\\inspect\\after\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
