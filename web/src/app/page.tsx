@@ -57,6 +57,30 @@ const reasons = [
   },
 ];
 
+const venueSpaces = [
+  {
+    id: "grand-hall",
+    name: "Grand Hall",
+    description: "The Grand Hall is a spacious indoor venue designed to accommodate large gatherings and memorable celebrations. With a capacity of approximately 100–150 guests, it is ideal for weddings, debut celebrations, birthday parties, corporate events, anniversaries, and other grand occasions. Its indoor setting provides a comfortable and elegant atmosphere for formal gatherings and special celebrations. Venue arrangements and additional facilities may be coordinated with the management depending on the client's event requirements.",
+    image: stockPhotos.ballroom,
+    imageAlt: "Illustrative photograph of a ballroom arranged for a reception",
+  },
+  {
+    id: "alfresco",
+    name: "Alfresco",
+    description: "The Alfresco offers a relaxed and welcoming setting for intimate celebrations and gatherings. Accommodating up to 50 guests, it is suitable for birthday parties, family reunions, intimate weddings, bridal showers, and small corporate gatherings. Its open-air atmosphere provides guests with a refreshing environment while allowing them to enjoy a more casual and personalized celebration. It is an excellent choice for clients who prefer a laid-back venue for meaningful occasions.",
+    image: stockPhotos.table,
+    imageAlt: "Illustrative photograph of a reception table with floral details",
+  },
+  {
+    id: "veranda",
+    name: "Veranda",
+    description: "The Veranda is an intimate event space perfect for smaller celebrations and private gatherings. With a capacity of up to 40 guests, it is ideal for family celebrations, intimate birthday parties, small reunions, private dinners, and other exclusive occasions. Its relaxing atmosphere makes it suitable for clients who want a more personal and comfortable event experience. The venue also offers access to the swimming pool, providing guests with an additional recreational feature to enjoy during their stay.",
+    image: stockPhotos.hall,
+    imageAlt: "Illustrative photograph of a smaller event setting",
+  },
+];
+
 const questions = [
   {
     question: "Does an inquiry hold my date?",
@@ -169,9 +193,34 @@ export default function Home() {
               data-home-word
               id="villa-home-title"
             >
-              A place for your people.
+              A place for your <span className = "mine">people.</span>
             </h1>
+            <p className="villa-home__hero-description">
+              Weddings, birthdays, reunions, and milestones, set in a Grand
+              Hall, open-air Alfresco, or an intimate Veranda.
+            </p>
+            <Link className="villa-home__button" href="/reserve">
+              Request a quotation <span aria-hidden="true">↗</span>
+            </Link>
           </div>
+
+          <figure className="villa-home__hero-feature" data-home-reveal>
+            <div className="villa-home__hero-feature-window">
+              <Image
+                alt="Illustrative photograph of a ballroom arranged with round tables and chandeliers"
+                fill
+                priority
+                sizes="(max-width: 700px) 78vw, 36vw"
+                src={stockPhotos.ballroom}
+                data-home-art
+              />
+            </div>
+            <a className="villa-home__hero-feature-note" href="#about">
+              <span>Three spaces</span>
+              <strong>Day, Night, or Whole day</strong>
+              <small>Explore the venue <span aria-hidden="true">↗</span></small>
+            </a>
+          </figure>
         </section>
 
         <div
@@ -233,48 +282,79 @@ export default function Home() {
         >
           <div className="villa-home__about-intro">
             <h2 data-home-reveal id="villa-home-about-title">
-              Choose a space for your gathering.
+              The <span className="mine">three</span> spaces for your gathering.
             </h2>
-            <div className="villa-home__about-copy" data-home-reveal>
-              <p>
-                The Grand Hall, open-air Alfresco, and more intimate Veranda
-                offer different settings for your celebration. Ask the team
-                which space fits your date and guest count.
-              </p>
-              <a className="villa-home__text-link" href="#villa-home-gallery">
-                Explore the gallery <span aria-hidden="true">↓</span>
-              </a>
-            </div>
           </div>
 
-          <div className="villa-home__venue-details">
-            <div className="villa-home__venue-spaces">
-              <h3>Three spaces, each with its own character.</h3>
-              <ul>
-                <li>
-                  <strong>Grand Hall</strong>
-                  <span>An indoor setting for a celebration together.</span>
-                </li>
-                <li>
-                  <strong>Alfresco</strong>
-                  <span>An open-air space for gathering.</span>
-                </li>
-                <li>
-                  <strong>Veranda</strong>
-                  <span>A more intimate setting for your occasion.</span>
-                </li>
-              </ul>
+          <div className="villa-home__venue-details" data-venue-selector>
+            <div className="villa-home__venue-photo-stack">
+              {venueSpaces.map((space, index) => (
+                <figure
+                  aria-hidden={index !== 0}
+                  className="villa-home__venue-photo"
+                  data-venue-photo={space.id}
+                  hidden={index !== 0}
+                  key={space.id}
+                >
+                  <div className="villa-home__venue-photo-window">
+                    <Image
+                      alt={space.imageAlt}
+                      fill
+                      sizes="(max-width: 700px) 100vw, 45vw"
+                      src={space.image}
+                    />
+                  </div>
+                </figure>
+              ))}
             </div>
-            <div className="villa-home__venue-planning">
-              <h3>Details for your date</h3>
-              <p>
-                Ask about Day, Night, or Whole day events. Guest capacity,
-                amenities, included services, and current rates are confirmed
-                with the team for your chosen space and date.
-              </p>
-              <Link className="villa-home__text-link" href="/reserve">
-                Ask for a quotation <span aria-hidden="true">↗</span>
-              </Link>
+            <div className="villa-home__venue-content">
+              <div
+                aria-label="Choose an event space"
+                className="villa-home__venue-tabs"
+                role="tablist"
+              >
+                {venueSpaces.map((space, index) => (
+                  <button
+                    aria-controls={`venue-panel-${space.id}`}
+                    aria-selected={index === 0}
+                    className="villa-home__venue-tab"
+                    data-venue-tab={space.id}
+                    id={`venue-tab-${space.id}`}
+                    key={space.id}
+                    role="tab"
+                    tabIndex={index === 0 ? 0 : -1}
+                    type="button"
+                  >
+                    {space.name}
+                  </button>
+                ))}
+              </div>
+              {venueSpaces.map((space, index) => (
+                <div
+                  aria-labelledby={`venue-tab-${space.id}`}
+                  className="villa-home__venue-panel"
+                  data-venue-panel={space.id}
+                  hidden={index !== 0}
+                  id={`venue-panel-${space.id}`}
+                  key={space.id}
+                  role="tabpanel"
+                  tabIndex={0}
+                >
+                  <h3>{space.name}</h3>
+                  <p>{space.description}</p>
+                </div>
+              ))}
+              <div className="villa-home__venue-planning">
+                <h3>Details for your date</h3>
+                <p>
+                  Ask about Day, Night, or Whole day events. Guest capacity,
+                  amenities, included services, and current rates are confirmed
+                  with the team for your chosen space and date.
+                </p>
+                <Link className="villa-home__text-link" href="/reserve">
+                  Ask for a quotation <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -289,10 +369,6 @@ export default function Home() {
             <div className="villa-home__gallery-heading">
               <h3 data-home-reveal>Imagine the gathering.</h3>
               <div className="villa-home__gallery-controls">
-                <p id="villa-home-gallery-help">
-                  Illustrative event settings. Swipe or use the controls to
-                  browse.
-                </p>
                 <div className="villa-home__gallery-control-buttons">
                   <button
                     aria-controls="villa-home-gallery-track"
@@ -321,7 +397,6 @@ export default function Home() {
                     data-gallery-toggle
                     type="button"
                   >
-                    Pause
                   </button>
                 </div>
               </div>
@@ -420,6 +495,16 @@ export default function Home() {
           <Link className="villa-home__button" href="/reserve">
             Request a quotation <span aria-hidden="true">↗</span>
           </Link>
+          <figure className="villa-home__booking-image" data-home-reveal>
+            <div className="villa-home__booking-image-window">
+              <Image
+                alt="Illustrative photograph of a reception table set for a celebration"
+                fill
+                sizes="(max-width: 700px) 100vw, 36vw"
+                src={stockPhotos.table}
+              />
+            </div>
+          </figure>
         </section>
       </main>
 
@@ -438,20 +523,8 @@ export default function Home() {
         </div>
         <div className="villa-home__footer-bottom">
           <span>Villa Corazon Events Place</span>
-          <span>Venue details and pricing are confirmed with your quotation.</span>
-          <a href="#home">Back to top ↑</a>
+          <a href="#home">↑</a>
         </div>
-        <p className="villa-home__credits">
-          Illustrative event photography via Unsplash. Hero footage, {" "}
-          <a
-            href="https://www.pexels.com/video/a-wedding-set-up-3936461/"
-            rel="noreferrer"
-            target="_blank"
-          >
-            &ldquo;A Wedding Set Up&rdquo; by viresh studio via Pexels
-          </a>
-          .
-        </p>
       </footer>
     </HomeMotion>
   );

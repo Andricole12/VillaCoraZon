@@ -27,6 +27,8 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
       root.querySelector<HTMLButtonElement>("[data-gallery-previous]");
     const galleryNext =
       root.querySelector<HTMLButtonElement>("[data-gallery-next]");
+    const venueSelector =
+      root.querySelector<HTMLElement>("[data-venue-selector]");
     let dragStartX = 0;
     let dragStartScrollLeft = 0;
     let isDragging = false;
@@ -102,6 +104,61 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
     };
     const onGalleryPrevious = () => scrollGallery(-1);
     const onGalleryNext = () => scrollGallery(1);
+    const selectVenue = (tab: HTMLButtonElement) => {
+      const selectedId = tab.dataset.venueTab;
+      if (!venueSelector || !selectedId) {
+        return;
+      }
+
+      venueSelector
+        .querySelectorAll<HTMLButtonElement>("[data-venue-tab]")
+        .forEach((venueTab) => {
+          const selected = venueTab === tab;
+          venueTab.setAttribute("aria-selected", String(selected));
+          venueTab.tabIndex = selected ? 0 : -1;
+        });
+
+      venueSelector
+        .querySelectorAll<HTMLElement>("[data-venue-panel], [data-venue-photo]")
+        .forEach((element) => {
+          const elementId =
+            element.dataset.venuePanel || element.dataset.venuePhoto;
+          const selected = elementId === selectedId;
+          element.hidden = !selected;
+          if (element.hasAttribute("aria-hidden")) {
+            element.setAttribute("aria-hidden", String(!selected));
+          }
+        });
+    };
+    const onVenueClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
+
+      const tab = event.target.closest<HTMLButtonElement>("[data-venue-tab]");
+      if (tab && venueSelector?.contains(tab)) {
+        selectVenue(tab);
+      }
+    };
+    const onVenueKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+        return;
+      }
+
+      const tabs = [
+        ...(venueSelector?.querySelectorAll<HTMLButtonElement>("[data-venue-tab]") ?? []),
+      ];
+      const currentIndex = tabs.indexOf(document.activeElement as HTMLButtonElement);
+      if (currentIndex < 0 || tabs.length < 2) {
+        return;
+      }
+
+      event.preventDefault();
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      const nextIndex = (currentIndex + direction + tabs.length) % tabs.length;
+      tabs[nextIndex].focus();
+      selectVenue(tabs[nextIndex]);
+    };
     const onGalleryKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
         return;
@@ -224,6 +281,8 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
     galleryTrack?.addEventListener("pointermove", onGalleryPointerMove);
     galleryTrack?.addEventListener("pointerup", onGalleryPointerUp);
     galleryTrack?.addEventListener("pointercancel", onGalleryPointerUp);
+    venueSelector?.addEventListener("click", onVenueClick);
+    venueSelector?.addEventListener("keydown", onVenueKeyDown);
     document.addEventListener("visibilitychange", onVisibilityChange);
     updateGalleryToggle();
 
@@ -241,6 +300,8 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
       galleryTrack?.removeEventListener("pointermove", onGalleryPointerMove);
       galleryTrack?.removeEventListener("pointerup", onGalleryPointerUp);
       galleryTrack?.removeEventListener("pointercancel", onGalleryPointerUp);
+      venueSelector?.removeEventListener("click", onVenueClick);
+      venueSelector?.removeEventListener("keydown", onVenueKeyDown);
       galleryTrack?.classList.remove("is-dragging");
       document.removeEventListener("visibilitychange", onVisibilityChange);
       if (autoplayInterval !== undefined) {
