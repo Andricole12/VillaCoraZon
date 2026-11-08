@@ -23,6 +23,10 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
       root.querySelector<HTMLUListElement>("[data-gallery-track]");
     const galleryToggle =
       root.querySelector<HTMLButtonElement>("[data-gallery-toggle]");
+    const galleryPrevious =
+      root.querySelector<HTMLButtonElement>("[data-gallery-previous]");
+    const galleryNext =
+      root.querySelector<HTMLButtonElement>("[data-gallery-next]");
     let dragStartX = 0;
     let dragStartScrollLeft = 0;
     let isDragging = false;
@@ -96,6 +100,8 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
         left,
       });
     };
+    const onGalleryPrevious = () => scrollGallery(-1);
+    const onGalleryNext = () => scrollGallery(1);
     const onGalleryKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
         return;
@@ -207,6 +213,8 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
 
     galleryObserver?.observe(gallery!);
     galleryToggle?.addEventListener("click", onGalleryToggle);
+    galleryPrevious?.addEventListener("click", onGalleryPrevious);
+    galleryNext?.addEventListener("click", onGalleryNext);
     gallery?.addEventListener("pointerenter", onGalleryPointerEnter);
     gallery?.addEventListener("pointerleave", onGalleryPointerLeave);
     gallery?.addEventListener("focusin", onGalleryFocusIn);
@@ -222,6 +230,8 @@ export default function HomeMotion({ children }: { children: ReactNode }) {
     const removeGalleryListeners = () => {
       galleryObserver?.disconnect();
       galleryToggle?.removeEventListener("click", onGalleryToggle);
+      galleryPrevious?.removeEventListener("click", onGalleryPrevious);
+      galleryNext?.removeEventListener("click", onGalleryNext);
       gallery?.removeEventListener("pointerenter", onGalleryPointerEnter);
       gallery?.removeEventListener("pointerleave", onGalleryPointerLeave);
       gallery?.removeEventListener("focusin", onGalleryFocusIn);

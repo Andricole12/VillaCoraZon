@@ -3,54 +3,55 @@ import Link from "next/link";
 import HomeMotion from "./home-motion";
 
 const stockPhotos = {
-  reception:
-    "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85",
-  garden:
-    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=85",
-  celebration:
-    "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=85",
+  ballroom: "/images/illustrative-reception.jpg",
+  table: "/images/illustrative-garden.jpg",
+  hall: "/images/illustrative-table-setting.jpg",
 };
 
 const galleryImages = [
   {
-    title: "Gather around the table",
-    description: "An indoor celebration",
-    image: stockPhotos.reception,
-    imageAlt: "Illustrative stock photo of a reception hall set for a celebration",
+    title: "A room ready to welcome guests",
+    description: "An illustrative reception setting",
+    image: stockPhotos.ballroom,
+    imageAlt:
+      "Illustrative photograph of a ballroom arranged with round tables and chandeliers",
   },
   {
-    title: "Celebrate in the open air",
-    description: "A garden gathering",
-    image: stockPhotos.garden,
-    imageAlt: "Illustrative stock photo of an outdoor celebration among greenery",
+    title: "Details around the table",
+    description: "An illustrative table setting",
+    image: stockPhotos.table,
+    imageAlt:
+      "Illustrative photograph of a long reception table with floral centerpieces",
   },
   {
-    title: "Make the evening your own",
-    description: "A table set for the occasion",
-    image: stockPhotos.celebration,
-    imageAlt: "Illustrative stock photo of a decorated event table",
+    title: "A celebration set for the day",
+    description: "An illustrative event hall",
+    image: stockPhotos.hall,
+    imageAlt:
+      "Illustrative photograph of banquet tables set in a bright event hall",
   },
   {
-    title: "A day made for your people",
-    description: "A wedding venue in bloom",
+    title: "An outdoor ceremony",
+    description: "An illustrative open-air arrangement",
     image: "/images/wedding-set-up-poster.jpg",
-    imageAlt: "Illustrative stock photo of an outdoor wedding venue with floral decorations",
+    imageAlt:
+      "Illustrative photograph of an outdoor ceremony arrangement with rows of chairs and a gazebo",
   },
 ];
 
 const reasons = [
   {
-    title: "A setting for your gathering",
+    title: "Three distinct spaces",
     description:
-      "Gather in the Grand Hall, enjoy the open-air Alfresco, or choose the more intimate Veranda.",
+      "Choose the indoor Grand Hall, open-air Alfresco, or the more intimate Veranda.",
   },
   {
-    title: "A schedule that suits your day",
+    title: "Day, Night, or Whole day",
     description:
-      "Ask about Day, Night, or Whole day experiences and find the format that fits your plans.",
+      "Ask about the available event formats and find one that works with your plans.",
   },
   {
-    title: "Planning with the details in view",
+    title: "A quotation for your plans",
     description:
       "Share your date, preferred space, and guest count. The team can confirm availability, amenities, and current rates.",
   },
@@ -58,24 +59,24 @@ const reasons = [
 
 const questions = [
   {
-    question: "How do I ask about a date?",
-    answer:
-      "Send an inquiry with your preferred date, event details, space, and guest count. Our team will check availability and prepare a quotation.",
-  },
-  {
     question: "Does an inquiry hold my date?",
     answer:
       "No. An inquiry does not reserve or hold a date. Availability and reservation details are confirmed with our team before a reservation is finalized.",
   },
   {
-    question: "What celebrations can I host?",
+    question: "How do I ask about a date?",
     answer:
-      "Villa Corazon is a setting for weddings, milestones, and meaningful gatherings. Share your plans with the team to discuss which space may suit your event.",
+      "Send an inquiry with your preferred date, event details, space, and guest count. Our team will check availability and prepare a quotation.",
   },
   {
     question: "What spaces can I ask about?",
     answer:
       "You can ask about the Grand Hall, Alfresco, and Veranda. The team can confirm current arrangements and help you choose a setting.",
+  },
+  {
+    question: "What celebrations can I host?",
+    answer:
+      "Villa Corazon is a setting for weddings, milestones, and meaningful gatherings. Share your plans with the team to discuss which space may suit your event.",
   },
   {
     question: "How does pricing work?",
@@ -122,7 +123,6 @@ export default function Home() {
         <nav aria-label="Main navigation" className="villa-home__nav">
           <a href="#reasons">Why Villa Corazon</a>
           <a href="#about">The venue</a>
-          <a href="#reviews">Reviews</a>
           <a href="#faq">FAQ</a>
         </nav>
 
@@ -131,7 +131,6 @@ export default function Home() {
           <nav aria-label="Mobile navigation">
             <a href="#reasons">Why Villa Corazon</a>
             <a href="#about">The venue</a>
-            <a href="#reviews">Reviews</a>
             <a href="#faq">FAQ</a>
             <Link href="/track">Track reservation</Link>
           </nav>
@@ -192,10 +191,10 @@ export default function Home() {
           id="reasons"
         >
           <div className="villa-home__reasons-intro">
-            <h2 id="villa-home-reasons-title">Why choose Villa Corazon?</h2>
+            <h2 id="villa-home-reasons-title">A few decisions shape the day.</h2>
             <p>
-              A gathering feels more personal when the place, the plan, and
-              your people come together.
+              Start with a setting and format. The team can confirm the details
+              for your date and guest count.
             </p>
           </div>
           <div className="villa-home__reasons-content">
@@ -210,18 +209,17 @@ export default function Home() {
             <figure className="villa-home__reasons-image" data-home-reveal>
               <div className="villa-home__reasons-image-window">
                 <Image
-                  alt="Illustrative stock photo of a celebration table set with flowers and place settings"
+                  alt="Illustrative photograph of a ballroom arranged with round tables and chandeliers"
                   fill
                   sizes="(max-width: 700px) 100vw, 48vw"
-                  src={stockPhotos.garden}
-                  unoptimized
+                  src={stockPhotos.ballroom}
                 />
               </div>
               <figcaption>
-                <span>A table set for the occasion.</span>
+                <span>A room set for a celebration.</span>
                 <small>
-                  An illustrative event setting; ask our team about current
-                  venue arrangements.
+                  Illustrative reception photography. Ask the team about
+                  Villa Corazon&apos;s current arrangements.
                 </small>
               </figcaption>
             </figure>
@@ -235,13 +233,13 @@ export default function Home() {
         >
           <div className="villa-home__about-intro">
             <h2 data-home-reveal id="villa-home-about-title">
-              A welcoming place to gather.
+              Choose a space for your gathering.
             </h2>
             <div className="villa-home__about-copy" data-home-reveal>
               <p>
-                From the Grand Hall to the open-air Alfresco and intimate
-                Veranda, Villa Corazon offers different settings for the
-                moments you want to share.
+                The Grand Hall, open-air Alfresco, and more intimate Veranda
+                offer different settings for your celebration. Ask the team
+                which space fits your date and guest count.
               </p>
               <a className="villa-home__text-link" href="#villa-home-gallery">
                 Explore the gallery <span aria-hidden="true">↓</span>
@@ -251,7 +249,7 @@ export default function Home() {
 
           <div className="villa-home__venue-details">
             <div className="villa-home__venue-spaces">
-              <h3>Three spaces to make your own.</h3>
+              <h3>Three spaces, each with its own character.</h3>
               <ul>
                 <li>
                   <strong>Grand Hall</strong>
@@ -268,7 +266,7 @@ export default function Home() {
               </ul>
             </div>
             <div className="villa-home__venue-planning">
-              <h3>Plans, amenities, and pricing</h3>
+              <h3>Details for your date</h3>
               <p>
                 Ask about Day, Night, or Whole day events. Guest capacity,
                 amenities, included services, and current rates are confirmed
@@ -292,17 +290,40 @@ export default function Home() {
               <h3 data-home-reveal>Imagine the gathering.</h3>
               <div className="villa-home__gallery-controls">
                 <p id="villa-home-gallery-help">
-                  Auto-advances. Drag, swipe, or use the arrow keys to explore.
+                  Illustrative event settings. Swipe or use the controls to
+                  browse.
                 </p>
-                <button
-                  aria-controls="villa-home-gallery-track"
-                  aria-label="Pause automatic gallery scrolling"
-                  aria-pressed="false"
-                  data-gallery-toggle
-                  type="button"
-                >
-                  Pause
-                </button>
+                <div className="villa-home__gallery-control-buttons">
+                  <button
+                    aria-controls="villa-home-gallery-track"
+                    aria-label="Previous celebration setting"
+                    className="villa-home__gallery-arrow"
+                    data-gallery-previous
+                    title="Previous"
+                    type="button"
+                  >
+                    <span aria-hidden="true">←</span>
+                  </button>
+                  <button
+                    aria-controls="villa-home-gallery-track"
+                    aria-label="Next celebration setting"
+                    className="villa-home__gallery-arrow"
+                    data-gallery-next
+                    title="Next"
+                    type="button"
+                  >
+                    <span aria-hidden="true">→</span>
+                  </button>
+                  <button
+                    aria-controls="villa-home-gallery-track"
+                    aria-label="Pause automatic gallery scrolling"
+                    aria-pressed="false"
+                    data-gallery-toggle
+                    type="button"
+                  >
+                    Pause
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -331,7 +352,6 @@ export default function Home() {
                         fill
                         sizes="(max-width: 700px) 84vw, 48vw"
                         src={photo.image}
-                        unoptimized
                       />
                     </div>
                     <figcaption>
@@ -343,29 +363,8 @@ export default function Home() {
               ))}
             </ul>
             <p className="villa-home__gallery-note">
-              Illustrative stock photos. Ask our team about current venue
-              arrangements.
-            </p>
-          </div>
-        </section>
-
-        <section
-          aria-labelledby="villa-home-reviews-title"
-          className="villa-home__reviews"
-          id="reviews"
-        >
-          <div data-home-reveal>
-            <h2 id="villa-home-reviews-title">Client reviews</h2>
-            <p>
-              We want this space to reflect real experiences from celebrations
-              at Villa Corazon.
-            </p>
-          </div>
-          <div className="villa-home__reviews-pending" data-home-reveal>
-            <strong>Reviews coming soon.</strong>
-            <p>
-              Verified guest feedback will appear here once it is collected
-              and approved.
+              These are illustrative images, not photographs of Villa Corazon.
+              Contact the team for current venue details.
             </p>
           </div>
         </section>
@@ -376,18 +375,17 @@ export default function Home() {
           id="faq"
         >
           <div className="villa-home__faq-intro" data-home-reveal>
-            <h2 id="villa-home-faq-title">A few things to know.</h2>
+            <h2 id="villa-home-faq-title">Before you inquire.</h2>
             <p>
-              Helpful details before you start planning your celebration.
+              How dates, spaces, and pricing are confirmed.
             </p>
           </div>
           <div className="villa-home__faq-list">
-            {questions.map((item, index) => (
+            {questions.map((item) => (
               <details
                 className="villa-home__faq-item"
                 data-home-reveal
                 key={item.question}
-                open={index === 0}
               >
                 <summary>
                   <span>{item.question}</span>
@@ -408,7 +406,7 @@ export default function Home() {
         >
           <div className="villa-home__booking-copy" data-home-reveal>
             <h2 id="villa-home-booking-title">
-              Let&apos;s make room for your celebration.
+              Your date starts with an inquiry.
             </h2>
             <p>
               Share your preferred date, space, and guest count. Our team will
@@ -433,7 +431,6 @@ export default function Home() {
           <nav aria-label="Footer navigation">
             <a href="#reasons">Why Villa Corazon</a>
             <a href="#about">The venue</a>
-            <a href="#reviews">Reviews</a>
             <a href="#faq">FAQ</a>
             <Link href="/track">Track reservation</Link>
             <Link href="/reserve">Request a quote</Link>
@@ -445,7 +442,7 @@ export default function Home() {
           <a href="#home">Back to top ↑</a>
         </div>
         <p className="villa-home__credits">
-          Illustrative venue photos via Unsplash. Hero footage,{" "}
+          Illustrative event photography via Unsplash. Hero footage, {" "}
           <a
             href="https://www.pexels.com/video/a-wedding-set-up-3936461/"
             rel="noreferrer"
