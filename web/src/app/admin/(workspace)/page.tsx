@@ -68,6 +68,7 @@ async function AdminDashboard({
   await connection();
   const { supabase, admin } = await requireAdmin();
   const minDate = getManilaToday();
+  const manilaTodayStartIso = new Date(`${minDate}T00:00:00+08:00`).toISOString();
   const now = new Date();
   const nowIso = now.toISOString();
   const [
@@ -82,6 +83,7 @@ async function AdminDashboard({
       .select(
         "inquiry_id, customer_name, contact_number, email, event_type, preferred_date, guest_count, special_request, inquiry_status, created_at, quote_amount, quote_valid_until, quote_notes, reservation_id, venues(venue_name), packages(package_name)",
       )
+      .neq("inquiry_status", "converted")
       .order("created_at", { ascending: false })
       .limit(100),
     supabase
@@ -90,7 +92,7 @@ async function AdminDashboard({
           "reservation_id, reference_code, event_type, start_at, guest_count, reservation_status, total_amount, customers(customer_name), reservation_packages(packages(package_name)), payments(payment_amount, payment_status)",
       )
       .in("reservation_status", ["pending", "confirmed"])
-      .gte("start_at", nowIso)
+      .gte("start_at", manilaTodayStartIso)
       .order("start_at", { ascending: true })
       .limit(500),
     supabase
@@ -216,7 +218,7 @@ async function AdminDashboard({
                 <p>Check that the reservations and core project schema are available in Supabase.</p>
               </div>
             ) : reservations.length === 0 ? (
-              <p className="admin-section-empty">No upcoming pending or confirmed reservations.</p>
+              <p className="admin-section-empty">No reservations scheduled for today or later.</p>
             ) : (
               <div className="admin-table-wrap admin-upcoming-table-wrap">
                 <table className="admin-table admin-upcoming-table">
