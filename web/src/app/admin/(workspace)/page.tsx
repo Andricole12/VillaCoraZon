@@ -327,7 +327,11 @@ async function AdminDashboard({
             <p className="admin-message admin-message-success" role="status">
               Reservation confirmed
               {reservationReference ? ` (${reservationReference})` : ""}. The deposit
-              was recorded and the venue date is now blocked.
+              was recorded and the venue date is now blocked. {reservationReference ? (
+                <Link href={`/admin/reservations?q=${encodeURIComponent(reservationReference)}`}>
+                  Open reservation
+                </Link>
+              ) : null}
             </p>
           ) : null}
           {params.confirm === "conflict" ? (
