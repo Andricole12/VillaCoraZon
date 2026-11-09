@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HeartMark } from "../heart-mark";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: "dashboard" },
@@ -110,9 +111,7 @@ export function AdminSidebar({
   return (
     <aside className="admin-sidebar" aria-label="Staff workspace navigation">
       <Link className="brand admin-sidebar-brand" href="/" aria-label="Villa Corazon home">
-        <span className="brand-mark" aria-hidden="true">
-          VC
-        </span>
+        <HeartMark className="admin-brand-mark" />
         <span className="brand-name">
           <strong>VILLA CORAZON</strong>
           <span>EVENTS PLACE</span>

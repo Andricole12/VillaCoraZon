@@ -7785,3 +7785,438 @@ a {
 .mine {
   color: #e4c777;
 }
+
+.admin-dashboard {
+  --admin-paper: #f7f4ec;
+  --admin-panel: #fffdfa;
+  --admin-ink: #101f36;
+  --admin-muted: #77796f;
+  --admin-line: #e5dcc9;
+  --admin-gold: #c8a75e;
+  background: var(--admin-paper);
+}
+
+.admin-sidebar {
+  background: var(--navy-deep);
+}
+
+.admin-sidebar-brand {
+  align-items: center;
+}
+
+.admin-brand-mark {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 auto;
+  color: #e5cf97;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.1;
+}
+
+.admin-sidebar-label {
+  color: #e5cf97;
+}
+
+.admin-sidebar-link > span,
+.admin-nav-icon,
+.admin-nav-external {
+  color: #cfc3a2;
+}
+
+.admin-sidebar-link-active > span,
+.admin-sidebar-link-active .admin-nav-icon {
+  color: var(--admin-gold);
+}
+
+.admin-header {
+  border-bottom: 1px solid var(--admin-line);
+  background: var(--admin-paper);
+  backdrop-filter: none;
+}
+
+.admin-workspace-label {
+  color: var(--admin-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.admin-overview-content {
+  padding-top: 30px;
+  color: var(--admin-ink);
+}
+
+.admin-overview-hero {
+  position: relative;
+  display: flex;
+  min-height: 150px;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 26px 30px;
+  background: var(--navy-deep);
+  color: var(--admin-paper);
+}
+
+.admin-overview-hero::after {
+  position: absolute;
+  right: 104px;
+  bottom: -27px;
+  color: rgb(255 255 255 / 7%);
+  content: "OVERVIEW";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(62px, 8vw, 108px);
+  line-height: 1;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.admin-overview-hero .admin-page-heading {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: calc(100% - 155px);
+  align-items: flex-start;
+  margin: 0;
+}
+
+.admin-overview-hero .admin-page-heading h1 {
+  color: var(--admin-paper);
+  font-size: clamp(28px, 3vw, 38px);
+}
+
+.admin-overview-hero .admin-page-heading .eyebrow {
+  color: #e5cf97;
+}
+
+.admin-overview-hero .admin-record-limit {
+  margin-top: 8px;
+  color: #d7d0c0;
+}
+
+.admin-overview-venue {
+  position: absolute;
+  top: -18px;
+  right: 5%;
+  width: 130px;
+  height: 190px;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgb(247 244 236 / 65%);
+  border-radius: 68px 68px 0 0;
+  background: #394558;
+}
+
+.admin-overview-venue img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.admin-overview-summary {
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.admin-overview-summary article {
+  min-height: 90px;
+  gap: 7px;
+  padding: 16px;
+  border: 1px solid var(--admin-line);
+  border-radius: 2px;
+  background: var(--admin-panel);
+  box-shadow: none;
+}
+
+.admin-overview-summary article::before {
+  inset: 0 auto auto 14px;
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--admin-gold);
+}
+
+.admin-overview-summary article.admin-summary-reviewing::before,
+.admin-overview-summary article.admin-summary-quoted::before,
+.admin-overview-summary article.admin-summary-confirmed::before,
+.admin-overview-summary article.admin-summary-balance::before {
+  background: var(--admin-gold);
+}
+
+.admin-overview-summary article > span:not(.admin-summary-icon) {
+  color: #887a5b;
+  font-size: 9px;
+}
+
+.admin-overview-summary article > strong {
+  color: var(--admin-ink);
+  font-size: 26px;
+}
+
+.admin-overview-summary article > small {
+  color: var(--admin-muted);
+  font-size: 9px;
+}
+
+.admin-summary-icon {
+  display: none;
+}
+
+.admin-reservations-panel,
+.admin-inquiry-workspace {
+  border: 1px solid var(--admin-line);
+  border-radius: 2px;
+  background: var(--admin-panel);
+  box-shadow: none;
+}
+
+.admin-reservations-panel-header {
+  min-height: 70px;
+  padding: 16px 18px;
+}
+
+.admin-reservations-panel-header h2,
+.admin-inquiry-workspace > summary strong,
+.admin-list-heading h2,
+.inquiry-card-top h2 {
+  color: var(--admin-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.admin-reservations-panel-header h2 {
+  font-size: 18px;
+}
+
+.admin-reservations-panel-header p,
+.admin-inquiry-workspace > summary small {
+  color: #827d70;
+}
+
+.admin-reservation-search {
+  border-color: var(--admin-line);
+  border-radius: 0;
+  background: var(--admin-paper);
+}
+
+.admin-reservation-filters {
+  border: 1px solid #b9b29f;
+  border-radius: 0;
+  background: transparent;
+}
+
+.admin-reservation-filters a {
+  border-radius: 0;
+  color: #6f6b61;
+}
+
+.admin-reservation-filters a:first-child,
+.admin-reservation-filters a:hover {
+  background: var(--navy-deep);
+  color: var(--admin-paper);
+  box-shadow: none;
+}
+
+.admin-upcoming-table-wrap {
+  border-top-color: var(--admin-line);
+}
+
+.admin-upcoming-table th {
+  background: #f7f3e9;
+  color: #837b68;
+}
+
+.admin-upcoming-table td {
+  border-bottom-color: #eee8dc;
+  color: #545d69;
+}
+
+.admin-upcoming-table td > strong,
+.admin-upcoming-table .admin-client-link,
+.admin-payment-summary > strong {
+  color: var(--admin-ink);
+}
+
+.admin-upcoming-table .admin-client-link:hover {
+  color: #94723d;
+}
+
+.admin-inquiry-workspace {
+  margin-top: 20px;
+}
+
+.admin-inquiry-workspace > summary strong {
+  font-size: 17px;
+}
+
+.admin-inquiry-count,
+.admin-list-heading > span {
+  color: #77796f;
+}
+
+.admin-list-heading .eyebrow {
+  color: #94723d;
+}
+
+.inquiry-list {
+  gap: 12px;
+}
+
+.inquiry-card {
+  padding: 20px;
+  border: 1px solid var(--admin-line);
+  border-radius: 2px;
+  background: var(--admin-panel);
+  box-shadow: none;
+}
+
+.inquiry-card-top h2 {
+  font-size: 20px;
+}
+
+.inquiry-status-reviewing,
+.inquiry-status-quoted {
+  background: #f1e7cf;
+  color: #70551f;
+}
+
+.admin-overview-content .confirm-reservation-form {
+  border: 1px solid #253854;
+  border-radius: 2px;
+  background: var(--navy-deep);
+  color: var(--admin-paper);
+}
+
+.admin-overview-content .confirm-reservation-form h3 {
+  color: #e5cf97;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.admin-overview-content .confirm-reservation-copy,
+.admin-overview-content .confirm-checks {
+  color: #e4e0d5;
+}
+
+.admin-overview-content .confirm-reservation-form .form-field > span {
+  color: #e5cf97;
+}
+
+.admin-overview-content .confirm-reservation-form input:not([type="checkbox"]),
+.admin-overview-content .confirm-reservation-form select {
+  border-color: #60708a;
+  border-radius: 0;
+  background: #172b4d;
+  color: #fff;
+}
+
+.admin-overview-content .confirm-reservation-form input[type="checkbox"] {
+  accent-color: var(--admin-gold);
+}
+
+.admin-overview-content .confirm-reservation-form .button {
+  border-color: var(--admin-gold);
+  border-radius: 2px;
+  background: var(--admin-gold);
+  color: var(--navy-deep);
+}
+
+.admin-overview-content .confirm-reservation-form .button:hover:not(:disabled) {
+  border-color: #e5cf97;
+  background: #e5cf97;
+}
+
+.admin-overview-content .quotation-form {
+  border: 1px solid var(--admin-line);
+  border-radius: 2px;
+  background: #faf7ef;
+}
+
+.admin-overview-content .quotation-form h3 {
+  color: var(--admin-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.admin-overview-content .quotation-form .form-field > span {
+  color: #817251;
+}
+
+.admin-overview-content .inquiry-status-form {
+  border-radius: 0;
+}
+
+.admin-empty-logo {
+  width: 38px;
+  height: 38px;
+  color: #94723d;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+}
+
+.admin-empty-mark {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #94723d;
+}
+
+.admin-header-primary {
+  border-color: var(--admin-gold);
+  border-radius: 2px;
+  background: var(--admin-gold);
+  color: var(--navy-deep);
+}
+
+.admin-header-primary:hover {
+  border-color: #b89347;
+  background: #b89347;
+}
+
+.admin-signout,
+.admin-header-link {
+  border-radius: 2px;
+}
+
+@media (max-width: 700px) {
+  .admin-overview-content {
+    padding-top: 22px;
+  }
+
+  .admin-overview-hero {
+    min-height: 136px;
+    padding: 20px 17px;
+  }
+
+  .admin-overview-hero::after {
+    right: 44px;
+    bottom: -10px;
+    font-size: 55px;
+  }
+
+  .admin-overview-hero .admin-page-heading {
+    max-width: calc(100% - 92px);
+  }
+
+  .admin-overview-hero .admin-page-heading h1 {
+    font-size: 26px;
+  }
+
+  .admin-overview-hero .admin-record-limit {
+    font-size: 8px;
+  }
+
+  .admin-overview-venue {
+    top: -8px;
+    right: 4%;
+    width: 78px;
+    height: 132px;
+  }
+
+  .admin-overview-summary article {
+    min-height: 84px;
+  }
+}

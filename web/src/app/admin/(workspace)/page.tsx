@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { connection } from "next/server";
@@ -13,6 +14,7 @@ import GmailQuotationDraftButton from "./gmail-quotation-draft-button";
 import { getGmailConnection, isGmailOAuthConfigured } from "@/lib/gmail";
 import { requireAdmin } from "@/lib/supabase/admin";
 import { getManilaToday } from "@/lib/dates";
+import { HeartMark } from "../../heart-mark";
 
 export const metadata: Metadata = {
   title: "Dashboard | Villa Corazon Events Place",
@@ -141,40 +143,47 @@ async function AdminDashboard({
   return (
     <AdminShell adminName={admin.admin_name} adminRole={admin.admin_role}>
       <main className="admin-content admin-overview-content" id="overview">
+        <section className="admin-overview-hero" aria-labelledby="admin-overview-title">
           <div className="admin-page-heading">
             <div>
               <p className="eyebrow">VENUE OVERVIEW</p>
-              <h1>Reservations &amp; events</h1>
+              <h1 id="admin-overview-title">Reservations &amp; events</h1>
             </div>
             <span className="admin-record-limit">
               Updated {formatCreatedAt(nowIso)}
             </span>
           </div>
+          <figure className="admin-overview-venue">
+            <Image
+              alt="Reception tables arranged inside an event hall"
+              fill
+              priority
+              sizes="(max-width: 700px) 78px, 130px"
+              src="/images/illustrative-reception.jpg"
+            />
+          </figure>
+        </section>
 
           <div className="admin-summary admin-overview-summary">
             <article className="admin-summary-upcoming">
               <span>Upcoming events</span>
               <strong>{reservationError ? "—" : reservations.length}</strong>
               <small>Pending and confirmed</small>
-              <span className="admin-summary-icon" aria-hidden="true">▦</span>
             </article>
             <article className="admin-summary-confirmed">
               <span>Confirmed</span>
               <strong>{reservationError ? "—" : confirmedCount}</strong>
               <small>Ready to celebrate</small>
-              <span className="admin-summary-icon" aria-hidden="true">✓</span>
             </article>
             <article className="admin-summary-reviewing">
               <span>Pending review</span>
               <strong>{inquiryError ? "—" : pendingReviewCount}</strong>
               <small>Needs attention</small>
-              <span className="admin-summary-icon" aria-hidden="true">◷</span>
             </article>
             <article className="admin-summary-balance">
               <span>Outstanding balance</span>
               <strong>{balanceError ? "—" : formatCurrency(outstandingBalance)}</strong>
               <small>Across active reservations</small>
-              <span className="admin-summary-icon" aria-hidden="true">₱</span>
             </article>
           </div>
 
@@ -407,7 +416,7 @@ async function AdminDashboard({
           ) : rows.length === 0 ? (
             <div className="admin-empty">
               <span className="admin-empty-mark" aria-hidden="true">
-                VC
+                <HeartMark className="admin-empty-logo" />
               </span>
               <h2>No inquiries yet</h2>
               <p>Customer requests will appear here after they submit the form.</p>
